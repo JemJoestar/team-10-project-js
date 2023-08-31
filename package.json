@@ -5,7 +5,7 @@
   "homepage": "https://jemjoestar.github.io/team-10-project-js",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /team-10-project-js/"
+    "build": "parcel build src/*.html --public-url /team-10-project-js/" 
   },
   "repository": {
     "type": "git",
