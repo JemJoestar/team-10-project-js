@@ -1,0 +1,8 @@
+import "./partials/header/header"
+import "./partials/categories/categories"
+import "./partials/home/home"
+import "./partials/menu/menu"
+import "./partials/modal/modal"
+import "./partials/shopping-list/shopping-list"
+import "./partials/theme/theme"
+import "./partials/support-ukraine/support-ukraine"
