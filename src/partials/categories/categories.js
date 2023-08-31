@@ -17,10 +17,12 @@ async function renderCategories() {
     })
     .join('');
 
-  refs.categoryListEl.innerHTML = marcup;
+  refs.categoryListEl.insertAdjacentHTML("beforeend", marcup);
 
   [...refs.categoryListEl.children].forEach(category => {
-    category.addEventListener('click', onSelectCategory);
+    if(category.dataset.category){
+        category.addEventListener('click', onSelectCategory);
+    }
   });
 }
 
