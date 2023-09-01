@@ -1,1 +1,43 @@
-Header
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Raleway:wght@800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container container">
+            <nav class="header-nav">
+                <a class="header-link link list" href="../home/home.html"><svg class="" width="109" height="28">
+                        <use href="./header_images/symbol-defs.svg#icon-logo-2"></use>
+                    </svg>
+                </a>
+                <ul class="list header-list">
+                    <li class="header-item"><a class="header-item-link current link" href="../home/home.html">HOME</a></li>
+                    <li class="header-item"><a class="header-item-link  link" href="../shopping-list/shopping-list.html">SHOPPING LIST</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="block">
+                <input type="checkbox">
+                <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="hamburger" width="28" height="28">
+                        <use href="./header_images/symbol-defs.svg#icon-burger"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
