@@ -44,6 +44,10 @@ async function renderPopularBooks() {
     button.dataset.category = categoryTitle;
     button.addEventListener('click', showMoreBooks);
   });
+
+  // Назначаем обработчик события на элемент .all-categories
+  const allCategories = document.querySelector('.all-categories');
+  allCategories.addEventListener('click', renderPopularBooks);
 }
 
 // Функция для создания HTML-разметки книги
@@ -65,21 +69,18 @@ async function showMoreBooks(event) {
   const categoryBlock = button.closest('.category-block');
   const bookRow = categoryBlock.querySelector('.book-row');
 
-  if (!categoryBlock.dataset.loaded) {
-    // Получаем название категории из кнопки "See More"
-    const categoryName = button.dataset.category;
-    // Загружаем данные книг для выбранной категории
-    const categoryBooksData = await fetchCategoryBooks(categoryName);
+  // Получаем название категории из кнопки "See More"
+  const categoryName = button.dataset.category;
+  // Загружаем данные книг для выбранной категории
+  const categoryBooksData = await fetchCategoryBooks(categoryName);
 
-    // Преобразуем массив книг в HTML-разметку и добавляем в блок
-    const remainingBooksHTML = categoryBooksData
-      .map(book => createBookHTML(book))
-      .join('');
-    bookRow.insertAdjacentHTML('beforeend', remainingBooksHTML);
+  // Преобразуем массив книг в HTML-разметку и добавляем в блок
+  const remainingBooksHTML = categoryBooksData
+    .map(book => createBookHTML(book))
+    .join('');
 
-    // Устанавливаем флаг, что дополнительные книги загружены
-    categoryBlock.dataset.loaded = true;
-  }
+  // Заменяем innerHTML, чтобы не дублировать книги
+  bookRow.innerHTML = remainingBooksHTML;
 
   // Отображаем скрытые книги и скрываем кнопку "See More"
   const hiddenBooks = bookRow.querySelectorAll('.hidden-book');
@@ -98,7 +99,3 @@ function createTitleMarkup(titleText) {
 
 // Вызываем функцию для отображения популярных книг
 renderPopularBooks();
-
-// Назначаем обработчик события на элемент .all-categories
-const allCategories = document.querySelector('.all-categories');
-allCategories.addEventListener('click', renderPopularBooks);
