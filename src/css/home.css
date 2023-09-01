@@ -98,7 +98,7 @@
 }
 
 /* Для главной страницы медиа правила*/
-
+/* 
 @media screen and (max-width: 1023px) {
   .main-container {
     display: flex;
@@ -110,5 +110,5 @@
   .main-container {
     display: flex;
   }
-}
+} */
 /* Дополнительные стили... */
