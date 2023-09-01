@@ -1,18 +1,34 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-:root{
-    --main-accent-color: #4F2EE8;
-    --gray-text-color: rgba(17, 17, 17, 60%);
-    --light-scrollbar-color: #E0E0E0;
-    --main-text-color: #111111;
+:root {
+  --main-accent-color: #4f2ee8;
+  --gray-text-color: rgba(17, 17, 17, 60%);
+  --light-scrollbar-color: #e0e0e0;
+  --main-text-color: #111111;
+  --yellow-accent-color: #eac645;
+  --light-bg-color: #f6f6f6;
+  --dark-bg-color: #202024;
+  --gray-color: #b4afaf;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --standart-font-family: 'DM Sans', sans-serif;
+  --gradient: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    var(--main-accent-color) 18.03%,
+    var(--white-color) 100%
+  );
 }
 
-.side-spot{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    justify-content: center;
-    margin: 0 auto;
+body{
+  font-family: var(--standart-font-family);
+}
+
+.side-spot {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 @media only screen and (min-width: 768px) {
@@ -30,7 +46,7 @@
   }
 }
 
-.container{
+.container {
   max-width: 375px;
   padding-left: 20px;
   padding-right: 20px;
@@ -48,7 +64,7 @@
 
 @media only screen and (min-width: 1440px) {
   .container {
-    max-width: 1440px;    
+    max-width: 1440px;
     padding-right: 24px;
     padding-left: 24px;
   }
