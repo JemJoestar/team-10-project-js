@@ -1,0 +1,232 @@
+.backdrop {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
+  overflow-y: scroll;
+  overflow: hidden;
+}
+
+/* .backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+} */
+
+.modal {
+  max-width: 335px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 40px 24px;
+  width: calc(100% - 20px * 2);
+  background: white;
+  border: 2px solid black;
+  border-radius: 18px;
+}
+
+/* .modal.is-hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+  visibility: 0;
+} */
+
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background: inherit;
+  border: none;
+  color: black;
+}
+
+.modal-close-icon {
+  fill: currentColor;
+}
+
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  color: violet;
+}
+
+.modal-book-cover {
+  display: block;
+  width: 287px;
+  height: 408px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.modal-book-title {
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+}
+
+.modal-book-author {
+  margin-bottom: 18px;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.16;
+  color: grey;
+}
+
+.modal-book-descr {
+  max-width: 287px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.56px;
+}
+
+.modal-shops-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  list-style: none;
+}
+
+.modal-add-btn,
+.modal-rmv-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 28px;
+  border: 2px solid violet;
+  border-radius: 40px;
+  background-color: inherit;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.modal-add-btn:hover,
+.modal-add-btn:focus,
+.modal-rmv-btn:hover,
+.modal-rmv-btn:focus {
+  color: white;
+  background-color: violet;
+}
+
+.modal-rmv-btn {
+  margin-bottom: 8px;
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+.modal-add-btn.is-hidden,
+.modal-rmv-btn.is-hidden,
+.modal-rmv-message.is-hidden {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-rmv-message {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 242px;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+/*-------------TABLET------------*/
+
+@media screen and (min-width: 768px) {
+  .modal {
+    max-width: 579px;
+    min-height: 465px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .modal-close-btn {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .modal-close-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+
+  .modal-book-cover {
+    width: 192px;
+    height: 281px;
+    margin-bottom: 0;
+  }
+
+  .modal-book-info {
+    width: 280px;
+  }
+
+  .modal-book-title {
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 1.16;
+  }
+
+  .modal-book-author {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .modal-book-descr {
+    margin-bottom: 20px;
+  }
+
+  .modal-shop-btn {
+    width: 100%;
+  }
+
+  .modal-add-btn,
+  .modal-rmv-btn {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .modal-rmv-message {
+    max-width: 324px;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+}
