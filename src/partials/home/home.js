@@ -2,8 +2,10 @@ import { fetchPopularBooks, fetchCategoryBooks } from './fetchBooks';
 
 // Функция для отображения популярных книг в каждой категории
 async function renderPopularBooks() {
-  const genresList = document.getElementById('bookList');
+  const genresList = document.querySelector('.books-output-by-category');
   const popularBooksData = await fetchPopularBooks();
+  
+  console.log(`genresList:` )
 
   genresList.innerHTML = popularBooksData
     .map(({ list_name, books }) => {
