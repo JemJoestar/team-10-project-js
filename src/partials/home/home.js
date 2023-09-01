@@ -2,12 +2,21 @@ import { fetchPopularBooks, fetchCategoryBooks } from './fetchBooks';
 
 // Функция для отображения популярных книг в каждой категории
 async function renderPopularBooks() {
+  // Удаляем предыдущие названия
   const genresList = document.querySelector('.books-output-by-category');
-  const popularBooksData = await fetchPopularBooks();
-  
-  console.log(`genresList:` )
+  genresList.innerHTML = '';
 
-  genresList.innerHTML = popularBooksData
+  // Добавляем элемент с названием "Best Sellers Books"
+  genresList.insertAdjacentHTML(
+    'afterbegin',
+    createTitleMarkup('Best Sellers Books')
+  );
+
+  const popularBooksData = await fetchPopularBooks();
+
+  console.log(`genresList:`);
+
+  genresList.innerHTML += popularBooksData
     .map(({ list_name, books }) => {
       // Ограничиваем количество отображаемых книг до 5
       const initialBooks = books.slice(0, 5);
@@ -78,5 +87,18 @@ async function showMoreBooks(event) {
   button.style.display = 'none';
 }
 
+// Функция для создания HTML-разметки заголовка категории
+function createTitleMarkup(titleText) {
+  const words = titleText.split(' ');
+  let lastWord = words[words.length - 1];
+  lastWord = `<span class="title-colored">${lastWord}</span>`;
+  words[words.length - 1] = lastWord;
+  return `<h1 class="categories-title">${words.join(' ')}</h1>`;
+}
+
 // Вызываем функцию для отображения популярных книг
 renderPopularBooks();
+
+// Назначаем обработчик события на элемент .all-categories
+const allCategories = document.querySelector('.all-categories');
+allCategories.addEventListener('click', renderPopularBooks);
