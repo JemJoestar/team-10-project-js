@@ -46,3 +46,15 @@
   color: var(--main-accent-color);
   font-weight: 700;
 }
+
+.categories-title{
+    color: var(--main-text-color);
+}
+
+.categories-title .title-colored{
+    color: var(--main-accent-color)
+}
+
+.dark li{
+    background-color: red;
+}
