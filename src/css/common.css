@@ -1,1 +1,30 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+:root{
+    --main-accent-color: #4F2EE8;
+    --gray-text-color: rgba(17, 17, 17, 60%);
+    --light-scrollbar-color: #E0E0E0;
+}
+
+.side-spot{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .side-spot {
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .side-spot {
+    flex-direction: column;
+    gap: 86px;
+    justify-content: start;
+  }
+}

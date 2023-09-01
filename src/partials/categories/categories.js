@@ -60,7 +60,7 @@ function createBookListMarcup(books) {
   return books
     .map(({ _id, author, title, book_image }) => {
       return `<li class="book-card">
-        <img data-id="${_id}" src="${book_image}" alt="${title} cover" width="150">
+        <img data-id="${_id}" src="${book_image}" alt="${title} cover" >
         <h2>${title}</h2>
         <p>${author}</p>
       </li>`;
