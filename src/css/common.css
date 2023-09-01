@@ -23,6 +23,25 @@ body{
   font-family: var(--standart-font-family);
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li,
+a {
+  list-style: none;
+}
+
 .side-spot {
   display: flex;
   flex-direction: column;
