@@ -39,13 +39,13 @@ async function onSelectCategory(event) {
   renderBooks(currentCategoryName);
 }
 
-async function renderBooks(currentCategoryName) {
+ async function renderBooks(currentCategoryName) {
   const books = await findBooksByCategory(currentCategoryName);
   console.log(`books:`, books);
 
   const bookListTitle = createTitleMarcup(currentCategoryName);
 
-  refs.bookListEl.innerHTML = `${bookListTitle}${createBookListMarcup(books)}`;
+  refs.bookListEl.innerHTML = `${bookListTitle}<ul class="categoris-books-list">${createBookListMarcup(books)}</ul>`;
 }
 
 function createTitleMarcup(titleText) {
