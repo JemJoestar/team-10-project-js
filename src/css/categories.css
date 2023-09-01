@@ -5,7 +5,7 @@
   overflow: scroll;
   list-style: none;
   height: 228px;
-  width: 335px;
+  max-width: 335px;
   overflow: -moz-scrollbars-vertical;
   overflow-x: hidden;
 }
@@ -21,6 +21,7 @@
 
 @media only screen and (min-width: 768px) {
   .category-list {
+    max-width: none;
     height: 472px;
     width: 337px;
   }
