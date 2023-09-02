@@ -10,11 +10,11 @@
   overflow: hidden;
 }
 
-/* .backdrop.is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-} */
+}
 
 .modal {
   max-width: 335px;
@@ -31,11 +31,11 @@
   border-radius: 18px;
 }
 
-/* .modal.is-hidden {
+.modal.is-hidden {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.4);
   visibility: 0;
-} */
+}
 
 .modal-close-btn {
   position: absolute;
@@ -138,7 +138,8 @@
 
 .modal-add-btn.is-hidden,
 .modal-rmv-btn.is-hidden,
-.modal-rmv-message.is-hidden {
+.modal-rmv-message.is-hidden,
+.loader.is-hidden {
   position: absolute;
   opacity: 0;
   visibility: hidden;
@@ -228,5 +229,23 @@
     padding: 0;
     font-size: 12px;
     line-height: 1.1;
+  }
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
