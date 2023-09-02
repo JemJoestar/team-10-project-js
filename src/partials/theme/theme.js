@@ -6,7 +6,7 @@ const THEME = {
 }
 
 
-btnChange.addEventListener('click', onChangeThemeClick);
+btnChange.addEventListener('change', onChangeThemeClick);
 
 function onChangeThemeClick(e, {light,dark} = THEME) {
     document.body.classList.toggle(light);
