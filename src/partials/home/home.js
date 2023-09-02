@@ -14,19 +14,25 @@ async function renderPopularBooks() {
 
   const popularBooksData = await fetchPopularBooks();
 
-  console.log(`genresList:`);
-
   genresList.innerHTML += popularBooksData
     .map(({ list_name, books }) => {
-      // Ограничиваем количество отображаемых книг до 5
-      const initialBooks = books.slice(0, 5);
-      // Преобразуем массив книг в HTML-разметку
+      let numberOfBooksToDisplay = 5; // По умолчанию на больших экранах показываем 5 книг
+
+      // Используем медиа-запросы для определения количества книг на разных устройствах
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        numberOfBooksToDisplay = 3; // На планшетах показываем 3 книги
+      }
+
+      if (window.matchMedia('(max-width: 480px)').matches) {
+        numberOfBooksToDisplay = 1; // На мобильных устройствах показываем 1 книгу
+      }
+
+      const initialBooks = books.slice(0, numberOfBooksToDisplay);
       const booksHTML = initialBooks.map(book => createBookHTML(book)).join('');
 
-      // Создаем блок для каждой категории и заполняем его данными
       return `
         <div class="category-block">
-          <h3 class="category-title">${list_name}</h3>
+          <p class="category-info">${list_name}</p>
           <div class="book-row">${booksHTML}</div>
           <button class="see-more-btn">See More</button>
         </div>
@@ -37,23 +43,19 @@ async function renderPopularBooks() {
   // Назначаем обработчик события для каждой кнопки "See More"
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
   seeMoreButtons.forEach(button => {
-    // Получаем название категории из заголовка блока и передаем в обработчик
+    // Получаем название категории из блока "category-info" и передаем в обработчик
     const categoryTitle = button
       .closest('.category-block')
-      .querySelector('.category-title').textContent;
+      .querySelector('.category-info').textContent;
     button.dataset.category = categoryTitle;
     button.addEventListener('click', showMoreBooks);
   });
-
-  // Назначаем обработчик события на элемент .all-categories
-  const allCategories = document.querySelector('.all-categories');
-  allCategories.addEventListener('click', renderPopularBooks);
 }
 
 // Функция для создания HTML-разметки книги
 function createBookHTML(book) {
   return `
-    <div class="book-card">
+    <div class="book-card" data-book-id="${book._id}">
       <img class="book-image" src="${book.book_image}" alt="${book.title}">
       <div class="book-info">
         <h3>${book.title}</h3>
@@ -98,4 +100,10 @@ function createTitleMarkup(titleText) {
 }
 
 // Вызываем функцию для отображения популярных книг
-renderPopularBooks();
+document.addEventListener('DOMContentLoaded', function () {
+  renderPopularBooks();
+});
+
+// Назначаем обработчик события на элемент .all-categories
+const allCategories = document.querySelector('.all-categories');
+allCategories.addEventListener('click', renderPopularBooks);
