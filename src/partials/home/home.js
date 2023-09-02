@@ -53,7 +53,7 @@ async function renderPopularBooks() {
 // Функция для создания HTML-разметки книги
 function createBookHTML(book) {
   return `
-    <div class="book-card">
+    <div class="book-card" data-book-id="${book._id}>
       <img class="book-image" src="${book.book_image}" alt="${book.title}">
       <div class="book-info">
         <h3>${book.title}</h3>

@@ -34,22 +34,37 @@ if (currentStorage) {
   localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify([]));
 }
 
-function onBookClick(event) { 
+// function onBookClick(event) { 
+//     event.preventDefault();
+// console.log('click on book')
+// const bookCards = document.querySelectorAll('.book-card');
+// return bookCards.forEach(card => {
+//   card.addEventListener('click', () => {
+//     const bookId = card.dataset.bookId;
+//     getBookInfo(bookId)
+//       .then(bookData => {
+//         openModal(bookData);
+//       })
+//       .catch(error => {
+//         console.log(error);
+//       });
+//   });
+// });
+// }
+
+ function onBookClick(event) {
     event.preventDefault();
-console.log('click on book')
-const bookCards = document.querySelectorAll('.book-card');
-return bookCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const bookId = card.dataset.bookId;
-    getBookInfo(bookId)
+    console.log('click on book');
+  if (event.target.closest('.book-card')) {
+    const bookId = event.target.dataset.bookId;
+      getBookInfo(bookId)
       .then(bookData => {
         openModal(bookData);
       })
       .catch(error => {
         console.log(error);
       });
-  });
-});
+  }
 }
 
 async function openModal(bookId) {
@@ -64,7 +79,7 @@ async function openModal(bookId) {
     
         createModalMarkup(bookData);
 
-        Loader.hide();
+    loader.hide();
 
     const refs = {
       addBtn: document.querySelector('.modal-add-btn'),
@@ -101,7 +116,7 @@ async function openModal(bookId) {
 
  function onAddBtnClick() {
       bookArray.push(bookData);
-      sessionStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
+      localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
       refs.addBtn.classList.add('is-hidden');
      refs.rmvBtn.classList.remove('is-hidden');
      refs.rmvMsg.classList.remove('is-hidden');
@@ -132,13 +147,13 @@ async function openModal(bookId) {
     }
 
     function closeModal() {
-      mainlRefs.modal.classList.add('is-hidden');
-      mainlRefs.backdrop.classList.add('is-hidden');
+      mainRefs.modal.classList.add('is-hidden');
+      mainRefs.backdrop.classList.add('is-hidden');
     }
 
     function removeListeners() {
-      window.removeEventListener('keydown', handleEscKeyPress);
-      window.removeEventListener('click', handleBackDropClick);
+      window.removeEventListener('keydown', onEscKeyPress);
+      window.removeEventListener('click', onBackdropClick);
     }
   } catch (error) {
     console.log(error);
@@ -146,21 +161,22 @@ async function openModal(bookId) {
 }
 
 function createModalMarkup(data) { 
-    let amazonUrl = bookData.buy_links.find(book => book.name === 'Amazon').url;
-    let appleBooksUrl = bookData.buy_links.find(
+    let amazonUrl = data.buy_links.find(book => book.name === 'Amazon').url;
+    let appleBooksUrl = data.buy_links.find(
             book => book.name === 'Apple Books'
         ).url;
-    let barnesAndNobleUrl = bookData.buy_links.find(
+    let barnesAndNobleUrl = data.buy_links.find(
             book => book.name === 'Barnes and Noble'
         ).url;
+    
     const modalWindow = document.querySelector('.modal');
     const modalMarkup = `<div class="modal-container">
-      <img src="${book_image}" alt="Book cover" class="modal-book-cover" />
+      <img src="${data.book_image}" alt="Book cover" class="modal-book-cover" />
       <div class="modal-book-info">
-        <h1 class="modal-book-title">${title}</h1>
-        <p class="modal-book-author">${author}</p>
+        <h1 class="modal-book-title">${data.title}</h1>
+        <p class="modal-book-author">${data.author}</p>
         <p class="modal-book-descr">
-          ${description}
+          ${data.description}
         </p>
         <ul class="modal-shops-list">
           <li class="modal-list-item amazon">
