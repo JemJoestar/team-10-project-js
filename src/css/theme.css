@@ -1,0 +1,110 @@
+/* light theme */
+.light {
+    background-color: #F6F6F6;
+    color: #111111;
+}
+
+.light header {
+    background-color: #FFFFFF;
+    border: 1.5px solid #111;
+}
+
+.light svg {
+    fill: #111;
+}
+
+/* .light a {
+   color:  #111111;
+} */
+
+.light .categ a {
+    color: rgba(17, 17, 17, 0.60);
+}
+
+.light .categ a:hover {
+    color: #4F2EE8;
+}
+
+.light .categ a:active {
+    color: #4F2EE8;
+}
+
+/* .light p {
+    color: #111111;
+} */
+
+.light span {
+    color: #4F2EE8;
+}
+
+.light h2 {
+    color: #B4AFAF;
+}
+
+.light input {
+    border: 2px solid #111;
+    color: #111;
+    background: transparent;
+}
+
+.light button {
+    border: 2px solid #4F2EE8;
+    color: #111;
+    background: transparent;
+}
+
+
+
+
+/* dark theme */
+
+.dark {
+    background-color: #202024;
+    color: #FFFFFF;
+}
+
+.dark header {
+    background-color: #111;
+    border: 1.5px solid #FFF;
+}
+
+.dark svg {
+    fill: #fff;
+}
+
+/* .dark a {
+    color: #FFFFFF;
+} */
+
+.dark .categ a {
+    color: rgba(255, 255, 255, 0.60);
+    ;
+}
+
+.dark .categ a:hover {
+    color: #EAC645;
+}
+
+.dark .categ a:active {
+    color: #EAC645;
+}
+
+.dark span {
+    color: #4F2EE8;
+}
+
+.dark h2 {
+    color: #B4AFAF;
+}
+
+.dark input {
+    border: 2px solid #F6F6F6;
+    color: #F6F6F6;
+    background: transparent;
+}
+
+.dark button {
+    border: 2px solid #4F2EE8;
+    color: #FFF;
+    background: transparent;
+}
