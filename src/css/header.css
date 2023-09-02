@@ -1,7 +1,8 @@
 .header {
-    display: block;
-    width: 100%;
-
+    position: fixed;
+    top: 0; 
+    z-index: 100;
+    background-color: white;
 }
 
 .header-container {
@@ -25,9 +26,9 @@
     padding-right: 16px;
 }
 
-@media only screen and (min-width: 1158px) {
+@media only screen and (min-width: 1440px) {
     .container {
-        max-width: 1158px;
+        max-width: 1440px;
     }
 }
 
@@ -75,13 +76,30 @@
     border: none;
 }
 
-
+@media only screen and (min-width: 768px) {
+    .menu-toggle{
+        display: none;
+    }
+}
 
 .hamburger {
     stroke: #2E2F42;
     align-items: end;
 }
-
+.Authorization{
+    display: none;
+   width: 184px; 
+   height: 45px;
+}
+@media only screen and (min-width: 768px) {
+    .Authorization {
+        display: block;
+    }
+}
+.range{
+    width: 40px;
+    height: 24px;
+}
 .block {
     display: flex;
     align-items: center;
