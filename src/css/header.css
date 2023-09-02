@@ -1,12 +1,16 @@
 .header {
     position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     top: 0; 
+    left: 0;
     z-index: 100;
     background-color: white;
 }
 
 .header-container {
-    width: 100%;
+    width: 1440px;
     padding-top: 18px;
     display: flex;
     align-items: center;
