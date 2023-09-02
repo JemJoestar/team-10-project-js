@@ -120,7 +120,6 @@
 /* Для планшета (ширина экрана 768px и выше) */
 @media only screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
     flex-wrap: wrap;
   }
 
@@ -153,10 +152,7 @@
 
 /* Для ПК (ширина экрана 1158px и выше) */
 @media only screen and (min-width: 1158px) {
-  .container {
-    max-width: 1158px;
-    /* flex-wrap: wrap; */
-  }
+  
 
   .book-card {
     width: calc(20% - 20px); /* Пять карточек в строке с отступами между ними */
