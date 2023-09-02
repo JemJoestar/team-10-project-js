@@ -1,6 +1,8 @@
 import { getBookInfo } from "./book-info-api";
 
-document.addEventListener('click', onBookClick);
+const bookList = document.querySelector(".books-output-by-category")
+
+bookList.addEventListener('click', onBookClick);
 
 const mainRefs = {
   backdrop: document.querySelector('.backdrop-js'),
