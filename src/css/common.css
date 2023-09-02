@@ -20,7 +20,14 @@
 }
 
 body{
+  padding-top: 64px;
   font-family: var(--standart-font-family);
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    padding-top: 72px;
+  }
 }
 
 p,
@@ -46,8 +53,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  justify-content: center;
-  margin: 0 auto;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 768px) {
