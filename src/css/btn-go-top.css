@@ -2,28 +2,37 @@
 
 .btn-up {
     position: fixed;
-    right: 15px;
+    right: 20px;
     bottom: 20px;
     z-index: 50;
-  
-    background-color: transparent;
+    cursor: pointer;
+
     border: none;
     outline: none;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgba(79, 46, 232, 0.30);
+  }
   
-    cursor: pointer;
+  .btn-up-icon-thumb{
+    background-color: var(--main-accent-color);
+    outline: none;
+    padding: 15px;
+    border-radius: 50%;
+    
   
     display: flex;
     align-items: center;
     justify-content: center;
   
-    transition: opacity 0.3s ease-in-out;
-    /* color: var(--accent-color); */
-  
-    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out; 
+    opacity: 1;
   }
-  
+
   .btn-up-icon {
-    fill: var(--main-accent-color);
+    width: 24px;
+    height: 24px;
+    fill: var(--white-color);
   }
   
   .btn-up_hide {
