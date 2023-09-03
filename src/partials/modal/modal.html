@@ -1,5 +1,5 @@
 <div class="backdrop backdrop-js is-hidden">
-  <div class="modal modal-js is-hidden">
+  <div class="modal modal-js">
     <div class="loader loader-js is-hidden"></div>
     <button class="modal-close-btn">
       X
@@ -7,5 +7,61 @@
         <use xlink:href="#icon-modal-close"></use>
       </svg>
     </button>
+    <div class="modal-container">
+      <img src="#" alt="Book cover" class="modal-book-cover" />
+
+      <div class="modal-book-info">
+        <h1 class="modal-book-title"></h1>
+
+        <p class="modal-book-author"></p>
+
+        <p class="modal-book-descr"></p>
+
+        <ul class="modal-shops-list">
+          <li class="modal-list-item amazon">
+            <a
+              href=""
+              class="modal-amazon-link"
+              target="_blank"
+              rel="noreferrer noopener"
+              ><img alt="" />O</a
+            >
+          </li>
+
+          <li class="modal-list-item apple">
+            <a
+              href=""
+              class="modal-apple-link"
+              target="_blank"
+              rel="noreferrer noopener"
+              ><img alt="" />O</a
+            >
+          </li>
+
+          <li class="modal-list-item bookshop">
+            <a
+              href=""
+              class="modal-bookshop-link"
+              target="_blank"
+              rel="noreferrer noopener"
+              ><img alt="" />O</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="modal-shop-btn">
+        <button class="modal-add-btn is-hidden" type="button"></button>
+
+        <!-- <button class="modal-rmv-btn" type="button">
+          remove from the shopping list
+        </button> -->
+
+        <p class="modal-rmv-message is-hidden">
+          Сongratulations! You have added the book to the shopping list. To
+          delete, press the button “Remove from the shopping list”.
+        </p>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,209 +1,144 @@
-import { getBookInfo } from "./book-info-api";
+import axios from 'axios';
 
-const bookList = document.querySelector(".books-output-by-category")
 
-bookList.addEventListener('click', onBookClick);
+// зберігаємо посилання на елементи в об'єкті
+const globalRefs = {
+bookList: document.querySelector('.books-output-by-category'),
 
-const mainRefs = {
-  backdrop: document.querySelector('.backdrop-js'),
-  modal: document.querySelector('.modal-js'),
-};
-
-class Loader {
-  bookLoaderEl = document.querySelector('.loader-js');
-
-  show() {
-    this.bookLoaderEl.classList.remove('is-hidden');
-  }
-
-  hide() {
-    this.bookLoaderEl.classList.add('is-hidden');
-  }
-
-  getEl() {
-    return this.bookLoaderEl;
-  }
+backdrop: document.querySelector('.backdrop-js'),
+closeModalBtn: document.querySelector('.modal-close-btn'),
+bookCover: document.querySelector('.modal-book-cover'),
+bookTitle: document.querySelector('.modal-book-title'),
+bookAuthor: document.querySelector('.modal-book-author'),
+bookDescr: document.querySelector('.modal-book-descr'),
+amazonLink: document.querySelector('.modal-amazon-link'),
+appleLink: document.querySelector('.modal-apple-link'),
+bookshopLink: document.querySelector('.modal-bookshop-link'),
+addBtn: document.querySelector('.modal-add-btn'),
+rmvMsg: document.querySelector('.modal-rmv-message'),
 }
 
-const BOOKS_DATA_KEY = 'books-data';
-const bookArray = [];
-const currentStorage = JSON.parse(localStorage.getItem(BOOKS_DATA_KEY));
-const loader = new Loader();
 
-if (currentStorage) {
-  bookArray.push(...currentStorage);
-} else {
-  localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify([]));
+// змінні у які буде записана інфорамція про книгу і додані у локал стор. книги
+
+let bookData;
+let bookShoppingList =
+    JSON.parse(localStorage.getItem('bookShopList')) || [];
+
+// додаємо лісенери для відкриття та закриття модалки 
+
+globalRefs.bookList.addEventListener('click', openModal);
+globalRefs.closeModalBtn.addEventListener('click', closeModal);
+
+// Функція закриття модалки при кліку на бекдроп
+
+globalRefs.backdrop.addEventListener('click', event => {
+  if (event.target.classList.contains('backdrop-js')) {
+    closeModal();
+  }
+});
+
+// закриття при кліку на esc
+
+document.addEventListener('keydown', onEscPress);
+
+function onEscPress(event) { 
+    if (event.key === 'Escape') {
+    closeModal();
+  }
 }
+// Функція для відкриття модалки
 
-// function onBookClick(event) { 
-//     event.preventDefault();
-// console.log('click on book')
-// const bookCards = document.querySelectorAll('.book-card');
-// return bookCards.forEach(card => {
-//   card.addEventListener('click', () => {
-//     const bookId = card.dataset.bookId;
-//     getBookInfo(bookId)
-//       .then(bookData => {
-//         openModal(bookData);
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   });
-// });
-// }
-
- function onBookClick(event) {
+async function openModal(event) {
     event.preventDefault();
-    console.log('click on book');
-  if (event.target.closest('.book-card')) {
-    const bookId = event.target.dataset.bookId;
-      getBookInfo(bookId)
-      .then(bookData => {
-        openModal(bookData);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-}
-
-async function openModal(bookId) {
-  loader.show();
+    // консоль щоб побачити чи приходить айдішник з арі
+    console.log(event.target.parentNode.dataset.bookId);
+    
     try {
-        
-       const bookData = await getBookInfo(bookId);
-
-
-        mainRefs.modal.classList.remove('is-hidden');
-        mainRefs.backdrop.classList.remove('is-hidden');
+    //   отримання правильного айді при кліку по книзі
+    bookData = await getBookInfo(event.target.parentNode.dataset.bookId);
     
-        createModalMarkup(bookData);
-
-    loader.hide();
-
-    const refs = {
-      addBtn: document.querySelector('.modal-add-btn'),
-      rmvBtn: document.querySelector('.modal-rmv-btn'),
-      rmvMsg: document.querySelector('.modal-rmv-message'),
-      closeModalBtn: document.querySelector('.modal-close-btn'),
-    };
-
-    refs.rmvBtn.classList.add('is-hidden');
-    refs.rmvMsg.classList.add('is-hidden');    
-    refs.addBtn.classList.remove('is-hidden');
+    globalRefs.bookList.removeEventListener('click', openModal);
+      
+    // робимо модалку видимою
+    globalRefs.backdrop.classList.remove('is-hidden');
+        globalRefs.addBtn.classList.remove('is-hidden');
+    // заповнюємо розмітку правильними данними
+    globalRefs.bookCover.src = bookData.book_image;
+    globalRefs.bookTitle.textContent = bookData.title;
+    globalRefs.bookAuthor.textContent = bookData.author;
+    globalRefs.bookDescr.textContent = bookData.description;
+    
+    // отримуємо посилання на магазини
+    const amazonURL = bookData.buy_links.find(
+      buyLink => buyLink.name === 'Amazon'
+    ).url;
+    
+      const applebooksURL = bookData.buy_links.find(
+      buyLink => buyLink.name === 'Apple Books'
+    ).url;
+    
+      const bookshopURL = bookData.buy_links.find(
+      buyLink => buyLink.name === 'Bookshop'
+    ).url;
    
-
-    const isBookInStorage = bookArray.find(book => book._id === bookData._id);
-    const bookIndex = bookArray.indexOf(isBookInStorage);
-
-    if (isBookInStorage) {
-      refs.addBtn.classList.add('is-hidden');
-      refs.removeBlock.classList.remove('is-hidden');
-    }
-
-    window.addEventListener('keydown', onEscKeyPress);
-    window.addEventListener('click', onBackdropClick);
-    refs.addBtn.addEventListener('click', onAddBtnClick);
-    refs.rmvBtn.addEventListener('click', onRemoveBtnClick);
-    refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
-
-    function onCloseModalBtnClick() {
-      closeModal();
-      removeListeners();
-      
-      
-    }
-
- function onAddBtnClick() {
-      bookArray.push(bookData);
-      localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
-      refs.addBtn.classList.add('is-hidden');
-     refs.rmvBtn.classList.remove('is-hidden');
-     refs.rmvMsg.classList.remove('is-hidden');
-    }
-
-    function onRemoveBtnClick() {
-      bookArray.splice(bookIndex, 1);
-      localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
-      refs.addBtn.classList.remove('is-hidden');
-        refs.rmvBtn.classList.add('is-hidden');
-        refs.rmvMsg.classList.remove('is-hidden');
-    }
-
-    function onEscKeyPress(evt) {
-      const isEsc = evt.code === 'Escape';
-      if (isEsc) {
-        closeModal();
-        removeListeners();
-        
-      }
-    }
-
-    function onBackdropClick(evt) {
-      if (evt.target === mainRefs.backdrop) {
-        closeModal();
-        removeListeners();
-      }
-    }
-
-    function closeModal() {
-      mainRefs.modal.classList.add('is-hidden');
-      mainRefs.backdrop.classList.add('is-hidden');
-    }
-
-    function removeListeners() {
-      window.removeEventListener('keydown', onEscKeyPress);
-      window.removeEventListener('click', onBackdropClick);
-    }
-  } catch (error) {
-    console.log(error);
+    // записуємо посилання в атрибут href 
+    globalRefs.amazonLink.href = amazonURL;
+    globalRefs.appleLink.href = applebooksURL;
+    globalRefs.bookshopLink.href = bookshopURL;
+    
+// перевіряємо чи додана кника в локал стор
+    bookAddedCheck();
+    document.body.style.overflow = 'hidden';
+    
+  } catch {
+    console.error('Error');
   }
 }
 
-function createModalMarkup(data) { 
-    let amazonUrl = data.buy_links.find(book => book.name === 'Amazon').url;
-    let appleBooksUrl = data.buy_links.find(
-            book => book.name === 'Apple Books'
-        ).url;
-    let barnesAndNobleUrl = data.buy_links.find(
-            book => book.name === 'Barnes and Noble'
-        ).url;
-    
-    const modalWindow = document.querySelector('.modal');
-    const modalMarkup = `<div class="modal-container">
-      <img src="${data.book_image}" alt="Book cover" class="modal-book-cover" />
-      <div class="modal-book-info">
-        <h1 class="modal-book-title">${data.title}</h1>
-        <p class="modal-book-author">${data.author}</p>
-        <p class="modal-book-descr">
-          ${data.description}
-        </p>
-        <ul class="modal-shops-list">
-          <li class="modal-list-item amazon">
-            <a href="${amazonUrl}"><img alt="" class="modal-link" />O</a>
-          </li>
-          <li class="modal-list-item apple">
-            <a href="${appleBooksUrl}"><img alt="" class="modal-link" />O</a>
-          </li>
-          <li class="modal-list-item barnes">
-            <a href="${barnesAndNobleUrl}"><img alt="" class="modal-link" />O</a>
-          </li>
-        </ul>
-      </div>
-      <div class="modal-shop-btn">
-        <button class="modal-add-btn is-hidden">add to shopping list</button>
-        <button class="modal-rmv-btn">remove from the shopping list</button>
-        <p class="modal-rmv-message">
-          Сongratulations! You have added the book to the shopping list. To
-          delete, press the button “Remove from the shopping list”.
-        </p>
-      </div>
-    </div>`
+// отримуємо данні з api
 
-    return modalWindow.insertAdjacentHTML("beforeend", modalMarkup);
+async function getBookInfo(bookId) {
+  const response = await axios.get(
+    `https://books-backend.p.goit.global/books/${bookId}`
+  );
+    console.log(response.data);
+  return await response.data;
 }
-
-
-// data-book-id="${book._id}"
+  
+// перевірка чи додана книга в локал стор
+function bookAddedCheck() {
+  if (bookShoppingList.some(book => book._id === bookData._id)) {
+    globalRefs.addBtn.removeEventListener('click', addToCart);
+      globalRefs.addBtn.addEventListener('click', removeFromCart);
+    //   якщо так, то міняємо напис на кнопці
+      globalRefs.addBtn.textContent = 'REMOVE FROM SHOPING LIST';
+    //   і показуємо повідомлення
+    globalRefs.rmvMsg.classList.remove('is-hidden');
+  } else {
+    globalRefs.addBtn.removeEventListener('click', removeFromCart);
+    globalRefs.addBtn.addEventListener('click', addToCart);
+      globalRefs.addBtn.textContent = 'ADD TO SHOPING LIST';
+    //   якщо ні, ховаємо повідомлення
+    globalRefs.rmvMsg.classList.add('is-hidden');
+  }
+  localStorage.setItem('bookShopList', JSON.stringify(bookShoppingList));
+}
+// функція додавання книги в локал стор
+function addToCart() {
+  bookShoppingList.push(bookData);
+  bookAddedCheck();
+}
+// видалення з локал стор
+function removeFromCart() {
+  bookShoppingList = bookShoppingList.filter(book => book._id !== bookData._id);
+  bookAddedCheck();
+}
+// закриття модалки
+function closeModal() {
+  globalRefs.backdrop.classList.add('is-hidden');
+  globalRefs.bookList.addEventListener('click', openModal);
+    document.body.style.overflow = '';
+    // знімаємо лісенер для esc
+ document.removeEventListener('keydown', onEscPress);
+}
