@@ -156,13 +156,14 @@
       33.33% - 25px
     ); /* Три блока в строке с учетом отступов между ними */
     height: auto;
-    max-width: 218px;
-    max-height: 366px;
+    /* max-width: 218px;
+    max-height: 366px; */
+    align-items: baseline;
   }
 
   .book-image {
-    width: 218px;
-    height: 316px;
+    /* width: 218px;
+    height: 316px; */
     /* height: 100%; */
     /* object-fit: cover; */
   }
@@ -193,6 +194,7 @@
     display: flex;
   }
   .book-card {
+    align-items: baseline;
     width: calc(20% - 20px); /* Пять карточек в строке с отступами между ними */
   }
 }

@@ -2,6 +2,7 @@ import { fetchPopularBooks, fetchCategoryBooks } from './fetchBooks';
 
 // Функция для отображения популярных книг в каждой категории
 async function renderPopularBooks() {
+  changeSelected();
   // Удаляем предыдущие названия
   const genresList = document.querySelector('.books-output-by-category');
   genresList.innerHTML = '';
@@ -25,13 +26,11 @@ async function renderPopularBooks() {
         <div class="category-block">
           <h2 class="category-info">${list_name}</h2>
           <div class="book-row">${booksHTML}</div>
-          <button class="see-more-btn">See More</button>
+          <button class="see-more-btn" aria-label="See More Books">See More</button>
         </div>
       `;
     })
     .join('');
-
-  changeSelected();
 
   // Назначаем обработчик события для каждой кнопки "See More"
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
@@ -50,7 +49,7 @@ function createBookHTML(book) {
   return `
     <div class="book-card" data-book-id="${book._id}">
 
-      <img class="book-image" src="${book.book_image}" alt="${book.title}">
+      <img class="book-image" src="${book.book_image}" alt="${book.title} cover">
       <div class="book-info">
         <h3 class = "bookinfo-title">${book.title}</h3>
         <p class = "bookinfo-author">${book.author}</p>
