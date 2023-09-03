@@ -7,8 +7,9 @@
             </a>
             <ul class="list header-list">
                 <li class="header-item"><a class="header-item-link current link" href="./index.html">HOME</a></li>
-                <li class="header-item"><a class="header-item-link  link" href="./shopping-list-page.html">SHOPPING LIST</a>
-                </li>
+                <li class="header-item"><a class="header-item-link  link" href="./shopping-list-page.html">SHOPPING LIST
+                    <svg class="bag" width="20" height="20"><use href="./images/icon.svg#icon-cart"></use></svg> </a></li>
+                
             </ul>
         </nav>
 
@@ -27,6 +28,29 @@
             </button>
         </div>
     </div>
+    <div class="menu-container js-menu-container" id="mobile-menu">
+        <button class="menu-toggle-mobil js-close-menu">
+            <svg class="modal-icon" width="7" height="7">
+                <!-- <use href="./images/icons.svg#icon-x-close"></use> -->
+            </svg>
+        </button>
+    
+        <ul class="mobile-menu list">
+            <li><a href="" class=" link mobile-link current">HOME</a></li>
+            <li><a href="" class=" mobile-link link">SHOPPING LIST<svg class="bag" width="20" height="20">
+                <use href="./images/icon.svg#icon-cart"></use>
+            </svg></a></li>
+    
+        </ul>
+    <button type="button" class="Authorization">
+        Authorization
+    </button>
+       
+    </div>
 
 </header>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+    integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+    crossorigin="anonymous"></script>
+<script defer src="./partials/header/header.js"></script>
 
