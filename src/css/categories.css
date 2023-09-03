@@ -43,6 +43,11 @@
   cursor: pointer;
 }
 
+.category:hover,
+.category:focus{
+  color: var(--main-accent-color);
+}
+
 .category.selected {
   text-transform: uppercase;
   color: var(--main-accent-color);
