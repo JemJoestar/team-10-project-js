@@ -1,6 +1,6 @@
 .backdrop {
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
@@ -26,8 +26,8 @@
   transform: translate(-50%, -50%) scale(1);
   padding: 40px 24px;
   width: calc(100% - 20px * 2);
-  background: white;
-  border: 2px solid black;
+  background: var(--white-color);
+  border: 2px solid var(--black-color);
   border-radius: 18px;
 }
 
@@ -49,16 +49,17 @@
   height: 24px;
   background: inherit;
   border: none;
-  color: black;
-}
-
-.modal-close-icon {
-  fill: currentColor;
+  color: var(--black-color);
+  cursor: pointer;
 }
 
 .modal-close-icon:hover,
 .modal-close-icon:focus {
-  color: violet;
+  color: var(--main-accent-color);
+}
+
+.modal-close-icon {
+  fill: currentColor;
 }
 
 .modal-book-cover {
@@ -76,6 +77,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
+  color: var(--black-color);
 }
 
 .modal-book-author {
@@ -83,7 +85,7 @@
   font-style: italic;
   font-size: 12px;
   line-height: 1.16;
-  color: grey;
+  color: var(--gray-color);
 }
 
 .modal-book-descr {
@@ -94,6 +96,7 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.56px;
+  color: var(--black-color);
 }
 
 .modal-shops-list {
@@ -104,13 +107,18 @@
   list-style: none;
 }
 
+.modal-link:hover,
+.modal-link:focus {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
 .modal-add-btn,
 .modal-rmv-btn {
   display: block;
   margin-left: auto;
   margin-right: auto;
   padding: 12px 28px;
-  border: 2px solid violet;
+  border: 2px solid var(--main-accent-color);
   border-radius: 40px;
   background-color: inherit;
   text-align: center;
@@ -120,24 +128,15 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: inherit;
+  cursor: pointer;
 }
 
 .modal-add-btn:hover,
-.modal-add-btn:focus,
-.modal-rmv-btn:hover,
-.modal-rmv-btn:focus {
-  color: white;
-  background-color: violet;
+.modal-add-btn:focus {
+  color: var(--white-color);
+  background-color: var(--main-accent-color);
 }
 
-.modal-rmv-btn {
-  margin-bottom: 8px;
-  padding-left: 23px;
-  padding-right: 23px;
-}
-
-.modal-add-btn.is-hidden,
-.modal-rmv-btn.is-hidden,
 .modal-rmv-message.is-hidden,
 .loader.is-hidden {
   position: absolute;
@@ -149,6 +148,7 @@
 .modal-rmv-message {
   margin-left: auto;
   margin-right: auto;
+
   padding-left: 5px;
   padding-right: 5px;
   max-width: 242px;
@@ -185,7 +185,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
-    margin-bottom: 20px;
   }
 
   .modal-book-cover {
@@ -215,7 +214,11 @@
   }
 
   .modal-shop-btn {
+    height: 64px;
     width: 100%;
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 700;
   }
 
   .modal-add-btn,
