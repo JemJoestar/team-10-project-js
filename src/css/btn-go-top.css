@@ -1,0 +1,35 @@
+/* ----------Скрол сторінки -------- */
+
+.btn-up {
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+    z-index: 50;
+  
+    background-color: transparent;
+    border: none;
+    outline: none;
+  
+    cursor: pointer;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    transition: opacity 0.3s ease-in-out;
+    /* color: var(--accent-color); */
+  
+    opacity: 0.7;
+  }
+  
+  .btn-up-icon {
+    fill: var(--main-accent-color);
+  }
+  
+  .btn-up_hide {
+    display: none;
+  }
+  
+  .btn-up_hiding {
+    opacity: 0;
+  }
