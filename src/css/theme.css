@@ -67,11 +67,11 @@
     background-color: var(--dark-bg-color);
 }
 
-.dark .book-info h3 {
+.dark .bookinfo-title {
     color: var(--white-color);
 }
 
-.dark .book-info p {
+.dark .bookinfo-author {
     color: var(--gray-color);
 }
 
