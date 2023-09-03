@@ -2,9 +2,12 @@ const btnChange = document.querySelector('.checkbox-ios');
 
 const THEME = 'dark';
 
+
+
 // перевірка, чи є у сxовищі тема 
 if (!(localStorage.getItem('theme') === null)) {
     document.body.classList.add(THEME);
+    document.querySelector("input[type=checkbox]").checked = true;
 }
 
 // додаємо слухач на перемикач теми
