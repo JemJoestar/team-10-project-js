@@ -23,13 +23,15 @@ async function renderPopularBooks() {
 
       return `
         <div class="category-block">
-          <p class="category-info">${list_name}</p>
+          <h2 class="category-info">${list_name}</h2>
           <div class="book-row">${booksHTML}</div>
           <button class="see-more-btn">See More</button>
         </div>
       `;
     })
     .join('');
+
+  changeSelected();
 
   // Назначаем обработчик события для каждой кнопки "See More"
   const seeMoreButtons = document.querySelectorAll('.see-more-btn');
@@ -50,8 +52,8 @@ function createBookHTML(book) {
 
       <img class="book-image" src="${book.book_image}" alt="${book.title}">
       <div class="book-info">
-        <h3>${book.title}</h3>
-        <p>${book.author}</p>
+        <h3 class = "bookinfo-title">${book.title}</h3>
+        <p class = "bookinfo-author">${book.author}</p>
       </div>
     </div>
   `;
@@ -95,6 +97,15 @@ function createTitleMarkup(titleText) {
 document.addEventListener('DOMContentLoaded', function () {
   renderPopularBooks();
 });
+
+// Функция selected
+function changeSelected() {
+  console.dir(allCategories);
+  const categoryListEl = allCategories.parentNode;
+  const categoryArr = categoryListEl.children;
+  [...categoryArr].forEach(category => category.classList.remove('selected'));
+  allCategories.classList.add('selected');
+}
 
 // Назначаем обработчик события на элемент .all-categories
 const allCategories = document.querySelector('.all-categories');

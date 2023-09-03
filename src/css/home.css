@@ -7,7 +7,7 @@
 
 /* Новый блок для категорий */
 .category-block {
-  background-color: var(--white-color); /* Используем переменную для фона */
+  /* background-color: var(--white-color); Используем переменную для фона */
   /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
 }
 
@@ -71,10 +71,9 @@
 
 .book-image {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover; /* Используем object-fit для масштабирования изображения без обрезания */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 8px;
 }
 
 .book-info {
@@ -86,7 +85,7 @@
   height: 100%;
 }
 
-.book-info h3 {
+.bookinfo-title {
   font-size: 1.2em;
   color: var(--main-text-color); /* Используем переменную для цвета текста */
   white-space: nowrap;
@@ -94,7 +93,7 @@
   text-overflow: ellipsis;
 }
 
-.book-info p {
+.bookinfo-author {
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
@@ -108,11 +107,12 @@
 }
 
 .see-more-btn {
+  display: block;
+  margin-left: auto;
+
   background: var(--white-color);
-  display: inline-flex;
+
   padding: 14px 28px;
-  align-items: flex-end;
-  gap: 10px;
   border-radius: 40px;
   border: 2px solid var(--main-accent-color);
   font-size: 14px;
@@ -121,7 +121,6 @@
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.14px;
   text-transform: uppercase;
-  margin-right: 208px;
 }
 
 .see-more-btn:hover,
@@ -131,6 +130,11 @@
   transform: scale(1.05);
 }
 
+@media only screen and (min-width: 768px) {
+  .see-more-btn {
+    margin-top: 20px;
+  }
+}
 /* Для главной страницы медиа правила */
 
 /* Для планшета (ширина экрана 768px и выше) */
@@ -157,8 +161,10 @@
   }
 
   .book-image {
-    height: auto;
-    max-height: 316px;
+    width: 218px;
+    height: 316px;
+    /* height: 100%; */
+    /* object-fit: cover; */
   }
 
   .see-more-btn {
@@ -182,7 +188,7 @@
   }
 }
 /* Пк */
-@media only screen and (min-width: 1158px) {
+@media only screen and (min-width: 1440px) {
   .book-card:nth-last-child(-n + 6) {
     display: flex;
   }
