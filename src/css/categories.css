@@ -42,6 +42,11 @@
   width: 100%;
 }
 
+.category:hover,
+.category:focus{
+  color: var(--main-accent-color);
+}
+
 .category.selected {
   text-transform: uppercase;
   color: var(--main-accent-color);
