@@ -3,33 +3,42 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     top: 0; 
     left: 0;
     z-index: 100;
     background-color: white;
+    border-radius: 0px 0px 8px 8px;
+    border: 1.5px solid #111;
 }
 
 .header-container {
-    width: 1440px;
-    padding-top: 18px;
+    width: 375px;
+    padding: 18px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
 
 }
-
-
-
+@media only screen and (min-width: 768px) {
+.header-container {
+        width: 768px;
+        padding: auto 32px;
+        
+    }
+}
 @media only screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
+    .header-container {
+        width: 1440px;
+        padding: auto 24px;
     }
 }
 
 .header-nav {
     display: flex;
     align-items: center;
+    gap: 40px; 
 }
 
 
@@ -41,10 +50,57 @@
     list-style: none;
 }
 
+.header-item-link {
+    display: flex;
+    gap: 8px;
+    color: #111;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+}
+
+.header-item-link:hover,
+.header-item-link:focus {
+    border-radius: 36px;
+        background: #EAC645;
+        display: flex;
+        padding: 8px 16px;
+        align-items: flex-start;
+        gap: 10px;
+}
+.header-item-link::after {
+
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 4px;
+
+    border-radius: 4px;
+}
+
+.current.header-item-link {
+    
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 36px;
+        background: #EAC645;
+        display: flex;
+            padding: 8px 16px;
+            align-items: flex-start;
+            gap: 10px;
+}
 
 
 .header-list {
     display: none;
+    align-items: center;
+    gap: 24px;
 
 }
 
@@ -138,9 +194,10 @@
 
 
 
+
 .menu-toggle {
-    min-height: 28px;
-    min-width: 28px;
+    min-height: 24px;
+    min-width: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,12 +206,122 @@
     background-color: transparent;
     cursor: pointer;
     border: none;
+
 }
 
-@media only screen and (min-width: 768px) {
-    .menu-toggle{
+@media (min-width: 768px) {
+    .menu-toggle {
         display: none;
     }
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 80px 32px 40px 40px;
+    background-color: var(--white-color);
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 250ms ease-in-out;
+}
+
+.menu-container.is-open {
+    transform: translateX(0);
+}
+
+.menu-toggle-mobil {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    min-height: 24px;
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid var(--btn-color);
+    border-radius: 50%;
+
+}
+
+.mobile-menu {
+
+    padding: 0;
+    margin-bottom: auto;
+
+}
+
+.mobile-link {
+
+    display: block;
+    padding-bottom: 40px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: var(--textp-color);
+    margin-bottom: 0;
+
+}
+
+.current {
+    color: var(--logo-color);
+}
+
+.mobile-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+.mobile-menu .link {
+    display: block;
+
+
+
+}
+
+.mobile-socials {
+    display: flex;
+    gap: 56px;
+}
+
+.mobile-contacts {
+    margin-bottom: 40px;
+}
+
+.mobile-contacts-tel {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+    color: var(--logo-color)
+}
+
+.mobile-contacts-add {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: var(--textp-color);
 }
 
 .hamburger {
