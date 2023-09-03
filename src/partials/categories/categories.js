@@ -11,7 +11,7 @@ async function renderCategories() {
 
   const marcup = allCaregories
     .map(({ list_name }) => {
-      return `<li class="category" data-category="${list_name}">
+      return `<li class="category" tabindex="0" data-category="${list_name}">
         ${list_name}
         </li>`;
     })
@@ -59,10 +59,10 @@ function createTitleMarcup(titleText) {
 function createBookListMarcup(books) {
   return books
     .map(({ _id, author, title, book_image }) => {
-      return `<li class="book-card">
-        <img data-id="${_id}" src="${book_image}" alt="${title} cover" >
-        <h2>${title}</h2>
-        <p>${author}</p>
+      return `<li class="book-card" data-book-id="${_id}">
+        <img class="book-image" src="${book_image}" alt="${title} cover" >
+        <h2 class="bookinfo-title">${title}</h2>
+        <p class="bookinfo-author">${author}</p>
       </li>`;
     })
     .join('');

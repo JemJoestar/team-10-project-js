@@ -20,15 +20,17 @@
 }
 
 body{
-  padding-top: 64px;
+  padding-top: 104px;
   font-family: var(--standart-font-family);
 }
 
 @media only screen and (min-width: 768px) {
   body {
-    padding-top: 72px;
+    padding-top: 112px;
   }
 }
+
+
 
 p,
 h1,

@@ -1,0 +1,127 @@
+.support-ukraine-container{
+    width: 335px;
+    height: 352px;
+    top: 372px;
+    left: 20px;
+    /* padding-top: 24px;
+    padding-left: 40px; */
+
+    border-radius: 16px;
+    background: var(--gradient);
+}
+
+@media screen and (min-width: 768px){
+    .support-ukraine-container{
+        height: 474px;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    .support-ukraine-container{
+        width: 356px;
+    }
+}
+
+.support-ukraine-div{
+    display: flex;
+    padding-top: 24px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    gap: 20px;
+    align-items: center;
+}
+
+.ukraine-title{
+    font-family: var(--standart-font-family);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    color: var(--white-color);
+
+}
+
+@media screen and (min-width: 768px){
+    .ukraine-title{
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+
+.ukraine-svg{
+    width: 20px;
+    height: 32px;
+}
+
+/*--------------------Arrow Down--------------------*/
+
+
+.arrow-down{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-arrow-down {
+    width: 32px;
+    height: 32px;
+    background-color: var(--white-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.btn-arrow-svg-down{
+    fill: var(--main-accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    /* transform: scale(0.7); */
+    transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-arrow-down:hover,
+.btn-arrow-svg-down:focus {
+    background-color: var(--main-accent-color);
+}
+
+/*--------------------Arrow Up--------------------*/
+
+
+.btn-arrow-up {
+    width: 32px;
+    height: 32px;
+    background-color: var(--main-accent-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin: 0 auto;
+    /* display: block; */
+    display: none;
+}
+
+.btn-arrow-svg-down{
+    fill: var(--main-accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    /* transform: rotate(180deg) scale(0.7); */
+    transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-arrow-up :focus,
+.btn-arrow-svg-down:hover {
+    fill: var(--white-color);
+    border-radius: 50%;
+    background-color: var(--main-accent-color);
+}

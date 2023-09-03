@@ -2,6 +2,7 @@ import { fetchPopularBooks, fetchCategoryBooks } from './fetchBooks';
 
 // Функция для отображения популярных книг в каждой категории
 async function renderPopularBooks() {
+  changeSelected();
   // Удаляем предыдущие названия
   const genresList = document.querySelector('.books-output-by-category');
   genresList.innerHTML = '';
@@ -18,23 +19,14 @@ async function renderPopularBooks() {
     .map(({ list_name, books }) => {
       let numberOfBooksToDisplay = 5; // По умолчанию на больших экранах показываем 5 книг
 
-      // Используем медиа-запросы для определения количества книг на разных устройствах
-      if (window.matchMedia('(max-width: 768px)').matches) {
-        numberOfBooksToDisplay = 3; // На планшетах показываем 3 книги
-      }
-
-      if (window.matchMedia('(max-width: 480px)').matches) {
-        numberOfBooksToDisplay = 1; // На мобильных устройствах показываем 1 книгу
-      }
-
       const initialBooks = books.slice(0, numberOfBooksToDisplay);
       const booksHTML = initialBooks.map(book => createBookHTML(book)).join('');
 
       return `
         <div class="category-block">
-          <p class="category-info">${list_name}</p>
+          <h2 class="category-info">${list_name}</h2>
           <div class="book-row">${booksHTML}</div>
-          <button class="see-more-btn">See More</button>
+          <button class="see-more-btn" aria-label="See More Books">See More</button>
         </div>
       `;
     })
@@ -57,10 +49,10 @@ function createBookHTML(book) {
   return `
     <div class="book-card" data-book-id="${book._id}">
 
-      <img class="book-image" src="${book.book_image}" alt="${book.title}">
+      <img class="book-image" src="${book.book_image}" alt="${book.title} cover">
       <div class="book-info">
-        <h3>${book.title}</h3>
-        <p>${book.author}</p>
+        <h3 class = "bookinfo-title">${book.title}</h3>
+        <p class = "bookinfo-author">${book.author}</p>
       </div>
     </div>
   `;
@@ -104,6 +96,15 @@ function createTitleMarkup(titleText) {
 document.addEventListener('DOMContentLoaded', function () {
   renderPopularBooks();
 });
+
+// Функция selected
+function changeSelected() {
+  console.dir(allCategories);
+  const categoryListEl = allCategories.parentNode;
+  const categoryArr = categoryListEl.children;
+  [...categoryArr].forEach(category => category.classList.remove('selected'));
+  allCategories.classList.add('selected');
+}
 
 // Назначаем обработчик события на элемент .all-categories
 const allCategories = document.querySelector('.all-categories');
