@@ -1,110 +1,91 @@
-/* light theme */
-.light {
-    background-color: #F6F6F6;
-    color: #111111;
-}
 
-.light header {
-    background-color: #FFFFFF;
-    border: 1.5px solid #111;
-}
-
-.light svg {
-    fill: #111;
-}
-
-/* .light a {
-   color:  #111111;
-} */
-
-.light .categ a {
-    color: rgba(17, 17, 17, 0.60);
-}
-
-.light .categ a:hover {
-    color: #4F2EE8;
-}
-
-.light .categ a:active {
-    color: #4F2EE8;
-}
-
-/* .light p {
-    color: #111111;
-} */
-
-.light span {
-    color: #4F2EE8;
-}
-
-.light h2 {
-    color: #B4AFAF;
-}
-
-.light input {
-    border: 2px solid #111;
-    color: #111;
-    background: transparent;
-}
-
-.light button {
-    border: 2px solid #4F2EE8;
-    color: #111;
-    background: transparent;
-}
-
-
-
-
-/* dark theme */
+/* DARK THEME FOR HOME*/
 
 .dark {
-    background-color: #202024;
-    color: #FFFFFF;
+    background-color: var(--dark-bg-color);
+    color: var(--white-color);
 }
 
 .dark header {
-    background-color: #111;
-    border: 1.5px solid #FFF;
+    background-color: var(--black-color);
+    border: 1.5px solid var(--white-color);
 }
 
-.dark svg {
-    fill: #fff;
+.dark .header-link {
+    fill: var(--white-color);
 }
 
-/* .dark a {
-    color: #FFFFFF;
-} */
-
-.dark .categ a {
-    color: rgba(255, 255, 255, 0.60);
-    ;
+.dark .header-item-link {
+    color: var(--white-color);
 }
 
-.dark .categ a:hover {
-    color: #EAC645;
+.dark .header-item-link:hover,
+.dark .header-item-link:focus {
+    color: var(--main-accent-color);
 }
 
-.dark .categ a:active {
-    color: #EAC645;
+.dark .hamburger {
+    stroke: var(--white-color);
 }
 
-.dark span {
-    color: #4F2EE8;
+.dark .hamburger:hover,
+.dark .hamburger:focus {
+    stroke: var(--main-accent-color);
 }
 
-.dark h2 {
-    color: #B4AFAF;
+.dark .category {
+    color: var(--gray-text-color-dark);
 }
+
+.dark .category:hover {
+    color: var(--yellow-accent-color);
+}
+
+.dark .category.selected {
+    color: var(--yellow-accent-color);
+}
+
+.dark .category-list::-webkit-scrollbar-thumb {
+    background-color: var(--gray-text-color);
+}
+
+.dark .categories-title {
+    color: var(--white-color);
+}
+
+.dark .category-block {
+    background-color: var(--dark-bg-color);
+}
+
+.dark .book-card {
+    background-color: var(--dark-bg-color);
+}
+
+.dark .book-info h3 {
+    color: var(--white-color) ;
+}
+
+.dark .book-info p {
+    color: var(--gray-color);
+}
+
 
 .dark input {
-    border: 2px solid #F6F6F6;
-    color: #F6F6F6;
+    border: 2px solid var(--light-bg-color);
+    color: var(--light-bg-color);
     background: transparent;
 }
 
-.dark button {
-    border: 2px solid #4F2EE8;
-    color: #FFF;
+.dark .see-more-btn {
+    border: 2px solid var(--main-accent-color);
+    color: var(--white-color);
     background: transparent;
 }
+
+.dark .see-more-btn:hover,
+.dark .see-more-btn:focus {
+    border: 2px solid var(--main-accent-color);
+    color: var(--white-color);
+    background: var(--main-accent-color);
+}
+
