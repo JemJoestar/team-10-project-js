@@ -18,15 +18,6 @@ async function renderPopularBooks() {
     .map(({ list_name, books }) => {
       let numberOfBooksToDisplay = 5; // По умолчанию на больших экранах показываем 5 книг
 
-      // Используем медиа-запросы для определения количества книг на разных устройствах
-      if (window.matchMedia('(max-width: 768px)').matches) {
-        numberOfBooksToDisplay = 3; // На планшетах показываем 3 книги
-      }
-
-      if (window.matchMedia('(max-width: 480px)').matches) {
-        numberOfBooksToDisplay = 1; // На мобильных устройствах показываем 1 книгу
-      }
-
       const initialBooks = books.slice(0, numberOfBooksToDisplay);
       const booksHTML = initialBooks.map(book => createBookHTML(book)).join('');
 
