@@ -11,13 +11,16 @@
     border: 1.5px solid var(--white-color);
 }
 
-.dark .header-link {
-    fill: var(--white-color);
-}
+
 
 .dark .header-item-link {
     color: var(--white-color);
 }
+
+.dark .header-item-link.current {
+    color: var(--black-color);
+}
+
 
 .dark .header-item-link:hover,
 .dark .header-item-link:focus {
