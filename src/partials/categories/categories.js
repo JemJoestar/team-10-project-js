@@ -11,7 +11,7 @@ async function renderCategories() {
 
   const marcup = allCaregories
     .map(({ list_name }) => {
-      return `<li class="category" data-category="${list_name}">
+      return `<li class="category" tabindex="0" data-category="${list_name}">
         ${list_name}
         </li>`;
     })
