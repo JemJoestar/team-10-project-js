@@ -27,6 +27,12 @@
     fill: var(--yellow-accent-color);
 }
 
+.dark .header-item-link:hover.current,
+.dark .header-item-link:focus.current{
+    color: var(--dark-bg-color);
+    fill: var(--dark-bg-color);
+}
+
 /* .dark .header-item-link:hover,
 .dark .header-item-link:focus {
     color: var(--dark-bg-color);
@@ -117,4 +123,8 @@
     border: 2px solid var(--light-bg-color);
     color: var(--light-bg-color);
     background: transparent;
+}
+
+.dark .amazon-logo > img{
+    filter: invert() grayscale()
 }

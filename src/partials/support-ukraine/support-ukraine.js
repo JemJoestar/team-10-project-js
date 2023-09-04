@@ -100,11 +100,14 @@ const founds = [
 ];
 
 const container = document.querySelector('.founds-list');
-container.insertAdjacentHTML(
-  'beforeend',
-  foundsMarkup(founds)
-);
+try{
 
+  container.insertAdjacentHTML(
+    'beforeend',
+    foundsMarkup(founds)
+    );
+    
+  }catch(err){}
 
 
 
@@ -131,25 +134,29 @@ const swiper = new Swiper('.my-swiper', {
   });
   
   let activeSwiperEl = 5;
+  try{
+
+    arrowButton.addEventListener('click', () => {
+      swiper.slideNext();
+      
+      if (
+        container.children[activeSwiperEl].classList.contains('swiper-slide-active')
+        ) {
+          arrowButton.style.display = 'none';
+          arrowButtonUp.style.display = 'block';
+        }
+      });
+      
+      arrowButtonUp.addEventListener('click', () => {
+        swiper.slidePrev();
+        if (container.children[0].classList.contains('swiper-slide-active')) {
+          arrowButtonUp.style.display = 'none';
+          arrowButton.style.display = 'block';
+        }
+      });
+    }catch(err){
   
-  arrowButton.addEventListener('click', () => {
-    swiper.slideNext();
-  
-    if (
-      container.children[activeSwiperEl].classList.contains('swiper-slide-active')
-    ) {
-      arrowButton.style.display = 'none';
-      arrowButtonUp.style.display = 'block';
     }
-  });
-  
-  arrowButtonUp.addEventListener('click', () => {
-    swiper.slidePrev();
-    if (container.children[0].classList.contains('swiper-slide-active')) {
-      arrowButtonUp.style.display = 'none';
-      arrowButton.style.display = 'block';
-    }
-  });
 
 
 
@@ -168,6 +175,8 @@ const intersectionObserver1 = new IntersectionObserver(function (entries) {
   arrowButtonUp.style.display = 'none';
   arrowButton.style.display = 'block';
 });
+try{
 
-intersectionObserver.observe(foundsList.lastElementChild);
-intersectionObserver1.observe(foundsList.firstElementChild);
+  intersectionObserver.observe(foundsList.lastElementChild);
+  intersectionObserver1.observe(foundsList.firstElementChild);
+}catch(err){}
