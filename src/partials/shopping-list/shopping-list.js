@@ -1,4 +1,4 @@
-import trashSvg from "./images/trash.svg"
+import trashSvg from "../../images/icon.svg"
 import appleBook from "./images/apple-book.png"
 import amazonLogo from "./images/amazon-logo.png"
 import bookShop from "./images/book-shop.png"
@@ -18,7 +18,7 @@ function createMarkup() {
         `<div class="card-book">
     <button class="btn-delete" type="button">
     <svg class="delete" width="12" height="12">
-    <use href=${trashSvg}></use>
+    <use href="${trashSvg}#icon-trash"></use>
     </svg>
     </button>
     <img
