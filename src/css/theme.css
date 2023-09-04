@@ -1,3 +1,20 @@
+/* код для зміни svg */
+/* для html */
+/* <svg class="light-logo" width="109" height="28">
+    <use href="./images/icon.svg#icon-logo-2"></use>
+</svg>
+<svg class="dark-logo" width="109" height="28">
+    <use href="./images/icon.svg#icon-logo-2-dark">
+</use></svg> */
+
+/* для сss */
+
+/* .dark-logo {
+    display: none;
+} */
+
+/* Це для Валентини щоб в себе поставила і в мене видали */
+
 /* DARK THEME FOR HOME*/
 
 .dark {
@@ -11,12 +28,22 @@
     border: 1.5px solid var(--white-color);
 }
 
+.dark .light-logo {
+    display: none;
+}
+
+
+.dark .dark-logo {
+    display: block;
+}
+
 .dark .header-item-link {
     color: var(--white-color);
     fill: var(--white-color);
 }
 
-.dark .header-item-link.current{
+.dark .header-item-link.current,
+.dark .header-item-link.current:hover{
     color: var(--dark-bg-color);
     fill: var(--dark-bg-color);
 }
@@ -27,12 +54,7 @@
     fill: var(--yellow-accent-color);
 }
 
-/* .dark .header-item-link:hover,
-.dark .header-item-link:focus {
-    color: var(--dark-bg-color);
-    fill: var(--dark-bg-color);
 
-} */
 
 .dark .hamburger {
     stroke: var(--white-color);
@@ -46,13 +68,15 @@
 /* style by category */
 
 .dark .category {
-    color: var(--gray-text-color-dark);
+    color: rgba(255, 255, 255, 0.60);;
 }
 
 .dark .category:hover,
 .dark .category.selected {
     color: var(--yellow-accent-color);
 }
+
+
 
 .dark .category-list::-webkit-scrollbar-thumb {
     background-color: var(--gray-text-color);
@@ -102,6 +126,23 @@
     stroke: var(--white-color);
 }
 
+.dark .modal-close-icon:hover {
+    stroke: var(--main-accent-color);
+}
+
+.dark .shoplist-img:hover {
+    filter: drop-shadow(0 3px 3px #f3f3f33d);
+}
+
+.dark .amazon-img {
+    filter: brightness(0) invert(1);
+}
+.dark .amazon-img:hover {
+    filter: brightness(0) invert(1) drop-shadow(0 3px 3px #f3f3f33d);
+}
+
+
+
 .dark .modal-book-title {
     color: var(--white-color);
 }
@@ -110,6 +151,27 @@
     color: var(--white-color);
 }
 
+.dark .modal-rmv-message {
+    color: rgba(255, 255, 255, 0.50);
+}
+
+/* stule by shopping list */
+
+.dark .card-book {
+    background-color: var(--black-color);
+}
+
+.dark .book-undertitle,
+.dark .author {
+    color: var(--gray-color);
+}
+.delete {
+    transition: transform 0.25s;
+}
+
+.delete:hover {
+    transform: scale(1.1);
+}
 /*stule by autorization window  */
 
 
