@@ -3,10 +3,8 @@ import {
   signInUser,
   signOutUser,
   onAuthUserChanged,
+  importShoppingListToFirebase,
 } from './firebase';
-
-let timerId = null;
-
 
 const form = document.getElementById('form-login-js');
 const refs = {
@@ -20,8 +18,7 @@ const refs = {
   closeFormBtn: document.getElementById('btn-close-form'),
 };
 
-  refs.openFormBtn.addEventListener('click', onOpenLoginForm);
-
+refs.openFormBtn.addEventListener('click', onOpenLoginForm);
 
 //відкриваємо форму та вішаємо слухачів
 function onOpenLoginForm() {
@@ -36,32 +33,27 @@ function onOpenLoginForm() {
 async function onSubmit(event) {
   event.preventDefault();
 
-  const data = new FormData(form);
-  const dataParams = {};
-  for (const [key, value] of data.entries()) {
-    dataParams[key] = value;
-  }
+  const { userEmail, userPassword } = parseEmailAndPassword();
 
-  const { userEmail, userPassword } = dataParams;
   if (refs.submitBtn.textContent === 'SIGN UP') {
     createUser(userEmail, userPassword);
   } else {
     signInUser(userEmail, userPassword);
     refs.logOutBtn.addEventListener('click', outUser, { once: true });
   }
-
-  timerId = setInterval(() => {
-    onAuthUserChanged();
-  }, 1000);
-
   form.reset();
+
+  //якщо користувач авторизувався, тоді записуємо книги з localStorage в firebase
+  if (onAuthUserChanged()) {
+    const dataFromLocalStorage = localStorage.getItem('bookShopList');
+    const parsedData = JSON.parse(dataFromLocalStorage);
+    importShoppingListToFirebase(parsedData);
+  }
 }
 
 //очищюємо інтервал коли User вийшов
 function outUser() {
   signOutUser();
-  clearInterval(timerId);
-  timerId = null;
 }
 
 //змінюємо вид форми при натиснені SignIn
@@ -88,4 +80,14 @@ function onCloseLoginForm() {
   refs.signIn.removeEventListener('click', onSignIn);
   refs.signUp.removeEventListener('click', onSignUp);
   refs.closeFormBtn.removeEventListener('click', onCloseLoginForm);
+}
+
+//функція для отримання логіну і пароля
+function parseEmailAndPassword() {
+  const data = new FormData(form);
+  const dataParams = {};
+  for (const [key, value] of data.entries()) {
+    dataParams[key] = value;
+  }
+  return dataParams;
 }

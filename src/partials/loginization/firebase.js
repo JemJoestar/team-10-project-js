@@ -66,18 +66,33 @@ export function signOutUser() {
 
 export function onAuthUserChanged() {
   const auth = getAuth(app);
-  onAuthStateChanged(auth, user => {
+  return onAuthStateChanged(auth, user => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       const uid = user.uid;
-      console.log('Юзер активний');
+      return true;
       // ...
     } else {
       // User is signed out
       // ...
-      console.log('Юзер вийшов');
+      return false;
     }
   });
+}
+
+export function importShoppingListToFirebase(parsedData) {
+  fetch(
+    `https://bookauthorization-yb-default-rtdb.europe-west1.firebasedatabase.app/bookShopList.json`,
+    {
+      method: 'POST',
+      body: JSON.stringify(parsedData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  )
+    .then(resp => resp.json())
+    .then(resp => console.log(resp));
 }
 
 function successfulAction(message) {
