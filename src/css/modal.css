@@ -52,6 +52,9 @@
 .modal-close-icon:hover {
   stroke: var(--main-accent-color);
 }
+.modal-close-icon {
+  stroke: currentColor;
+}
 
 /* BOOK INFORMATION STYLES */
 
