@@ -3,33 +3,44 @@
     height: 352px;
     top: 372px;
     left: 20px;
-    /* padding-top: 24px;
-    padding-left: 40px; */
-
+    padding-top: 24px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     border-radius: 16px;
     background: var(--gradient);
+    
 }
 
 @media screen and (min-width: 768px){
     .support-ukraine-container{
         height: 474px;
+        margin-top: 0;
     }
 }
 
 @media screen and (min-width: 1440px){
     .support-ukraine-container{
         width: 356px;
+        height: 490px;
+        margin: 0;
     }
 }
 
 .support-ukraine-div{
     display: flex;
-    padding-top: 24px;
-    padding-left: 40px;
+    /* padding-top: 24px; */
+    /* padding-left: 40px; */
     padding-bottom: 20px;
     gap: 20px;
     align-items: center;
 }
+
+/* @media screen and (min-width: 768px){
+    .support-ukraine-div{
+        margin-bottom: 25px;
+    }
+} */
 
 .ukraine-title{
     font-family: var(--standart-font-family);
@@ -104,8 +115,18 @@
     outline: none;
     padding: 0;
     margin: 0 auto;
-    /* display: block; */
     display: none;
+}
+
+.btn-arrow-svg-up{
+    fill: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(180deg) scale(0.7);
+    transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 32px;
+    height: 32px;
 }
 
 .btn-arrow-up :focus,
@@ -113,4 +134,78 @@
     fill: var(--white-color);
     border-radius: 50%;
     background-color: var(--main-accent-color);
+}
+
+
+/*--------------------Founds list--------------------*/
+
+
+.founds-list {
+    /* width: 159px; */
+    /* padding-left: 40px; */
+    /* gap: 20px; */
+}
+
+.founds-container {
+    width: 300px;
+    height: 188px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-right: 0px;
+}
+
+@media screen and (min-width: 768px){
+    .founds-container{
+        height: 340px;
+    }
+}
+
+.found-item{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.found-item-link{
+    margin-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.found-img{
+    filter: brightness(0) invert(1);
+    /* -webkit-filter: brightness(0) invert(1); */
+    height: 32px;
+    object-fit: contain;
+}
+
+.found-img {
+    transition: transform 500ms ease-out;
+}
+
+.found-img:hover {
+    transform: scale(1.15);
+}
+
+.found-img:active,
+.found-img:focus {
+    transform: scale(0.85);
+}
+
+
+
+
+
+.founds-container::-webkit-scrollbar {
+    width: 0%;
+    background-color: transparent;
+}
+
+.founds-container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.found-index{
+    color: var(--white-color);
 }
