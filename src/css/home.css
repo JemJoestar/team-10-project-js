@@ -70,6 +70,7 @@
 }
 
 .book-image {
+  aspect-ratio: 5/7;
   width: 100%;
   height: auto;
   object-fit: cover; /* Используем object-fit для масштабирования изображения без обрезания */
