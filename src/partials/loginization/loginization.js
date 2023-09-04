@@ -7,6 +7,7 @@ import {
 
 let timerId = null;
 
+
 const form = document.getElementById('form-login-js');
 const refs = {
   inputName: form.querySelector('[name="userName"]'),
@@ -19,7 +20,8 @@ const refs = {
   closeFormBtn: document.getElementById('btn-close-form'),
 };
 
-refs.openFormBtn.addEventListener('click', onOpenLoginForm);
+  refs.openFormBtn.addEventListener('click', onOpenLoginForm);
+
 
 //відкриваємо форму та вішаємо слухачів
 function onOpenLoginForm() {
