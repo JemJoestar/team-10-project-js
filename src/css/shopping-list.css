@@ -3,24 +3,54 @@ h1 {
   margin: 40px;
 } */
 
+.shopping-list-section {
+  display: flex;
+  gap: 40px;
+}
+
+@media only screen and (max-width: 1439px) {
+  .shopping-list-section > .support-ukraine-container {
+    display: none;
+  }
+}
+
 /* Mobile card */
 .card-book {
   position: relative;
   display: flex;
   width: 335px;
-  height: 170px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 14px;
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
   padding: 12px;
   margin-bottom: 20px;
 }
+@media only screen and (min-width: 768px) {
+  .card-book {
+    width: 100%;
+    padding: 24px;
+  }
+}
+
+.book-inform {
+  width: 190px;
+}
+
+@media only screen and (min-width: 768px) {
+  .book-inform {
+    width: 100%;
+  }
+}
 
 .btn-delete {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   right: 12px;
-  border-radius: 14px;
+  top: 12px;
+  border-radius: 50%;
   width: 28px;
   height: 28px;
   background-color: var(--main-accent-color);
@@ -28,15 +58,42 @@ h1 {
   cursor: pointer;
   border: none;
 }
+
+@media only screen and (min-width: 768px) {
+  .btn-delete {
+    width: 34px;
+    height: 34px;
+    right: 17px;
+    top: 17px;
+  }
+}
 .delete {
   stroke: var(--white-color);
   fill: none;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
+@media only screen and (min-width: 768px) {
+  .delete {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
 .poster {
   width: 100px;
   height: 142px;
   border-radius: 8px;
 }
+@media only screen and (min-width: 768px) {
+  .poster {
+    width: 116px;
+    height: 165px;
+  }
+}
+
 .book-title {
   font-size: 16px;
   font-weight: 700;
@@ -61,6 +118,12 @@ h1 {
   overflow: hidden;
 }
 
+@media only screen and (min-width: 768px) {
+  .book-undertitle {
+    margin-bottom: 14px;
+  }
+}
+
 .book-text {
   width: 193px;
   height: 68px;
@@ -71,6 +134,21 @@ h1 {
   letter-spacing: -0.04em;
   text-align: left;
   margin-bottom: 14px;
+}
+.book-text::-webkit-scrollbar {
+  width: 8px;
+}
+
+.book-text::-webkit-scrollbar-thumb {
+  background-color: var(--light-scrollbar-color);
+  border-radius: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .book-text {
+    height: 53px;
+    width: auto;
+  }
 }
 
 .card-undertext {
@@ -123,7 +201,41 @@ h1 {
   margin-bottom: 14px;
 }
 
-.img-spl{
+.img-spl {
   margin-left: auto;
   margin-right: auto;
+}
+
+.shop-list {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .shop-list {
+    gap: 16px;
+  }
+}
+
+.shopping-list-logo > img {
+  display: block;
+  filter: grayscale();
+  font-size: 16px;
+  height: 16px;
+  width: auto;
+}
+
+.amazon-logo > img {
+  height: 11px;
+}
+@media only screen and (min-width: 768px) {
+  .shopping-list-logo > img {
+    height: 30px;
+  }
+  .amazon-logo > img {
+    height: 15px;
+  }
 }
