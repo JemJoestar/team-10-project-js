@@ -5,7 +5,12 @@ h1 {
 
 .shopping-list-section {
   display: flex;
+  flex-wrap: nowrap;
   gap: 40px;
+}
+
+.shopping-list-box{
+  width: 100%;
 }
 
 @media only screen and (max-width: 1439px) {
