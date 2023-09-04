@@ -1,5 +1,4 @@
 const section = document.querySelector('.shopping-list-js');
-const cardBook = document.querySelector('.btn-delete');
 
 const bookCards = JSON.parse(localStorage.getItem('bookShopList'));
 
@@ -7,7 +6,7 @@ console.log(bookCards);
 
 function createMarkup() {
   return bookCards.reduce(
-    (markup, { author, book_image, title, description, list_name }) => {
+    (markup, { author, book_image, title, description}) => {
       return (
         markup +
         `<div class="card-book">
@@ -23,7 +22,7 @@ function createMarkup() {
     />
     <div>
       <h2 class="book-title">${title}</h2>
-      <p class="book-undertitle">${list_name}</p>
+      <p class="book-undertitle">11111</p>
       <p class="book-text">${description}</p>
       <div class="card-undertext">
         <p class="author">${author}</p>
@@ -35,10 +34,6 @@ function createMarkup() {
     ''
   );
 }
+console.log(createMarkup(bookCards))
 
-try {
-  section.innerHTML=createMarkup(bookCards);
-} catch (err) {}
-
-
-
+section.insertAdjacentHTML('beforeend', createMarkup(bookCards));
