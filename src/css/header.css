@@ -354,3 +354,10 @@
     justify-content: center;
     gap: 14px;
 }
+
+.header-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}

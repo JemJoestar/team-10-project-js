@@ -128,3 +128,7 @@
 .dark .amazon-logo > img{
     filter: invert() grayscale()
 }
+
+.dark .logo-text{
+    filter: invert();
+}
