@@ -14,6 +14,7 @@ h1 {
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
   padding: 12px;
+margin-bottom: 20px;
 }
 
 .btn-delete {
@@ -34,6 +35,7 @@ h1 {
 .poster {
   width: 100px;
   height: 142px;
+  border-radius: 8px;
 }
 .book-title {
   font-size: 16px;
@@ -42,6 +44,7 @@ h1 {
   letter-spacing: -0.04em;
   text-align: left;
   margin-bottom: 4px;
+
 }
 
 .book-undertitle {
