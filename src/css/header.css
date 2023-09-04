@@ -67,7 +67,7 @@
 .header-item-link:focus {
    color: #EAC645;
         display: flex;
-        padding: 8px 16px;
+      
         align-items: flex-start;
         gap: 10px;
 }
@@ -332,9 +332,11 @@
     border-radius: 18px;
     border: 1.5px solid #111;
     background: #4F2EE8;
+
     width: 184px; 
     height: 45px; 
     padding-bottom: 13px;
+   cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
     .Authorization {
