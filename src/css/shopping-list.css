@@ -231,9 +231,14 @@ h1 {
 .amazon-logo > img {
   height: 11px;
 }
+
+.shopping-list-logo:hover,
+.shopping-list-logo:focus{
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+}
 @media only screen and (min-width: 768px) {
   .shopping-list-logo > img {
-    height: 30px;
+    height: 32px;
   }
   .amazon-logo > img {
     height: 15px;

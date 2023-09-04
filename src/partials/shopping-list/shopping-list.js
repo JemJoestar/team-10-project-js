@@ -8,8 +8,8 @@ const section = document.querySelector('.shopping-list-js');
 const bookCards = JSON.parse(localStorage.getItem('bookShopList'));
 console.log(`bookCards:`, bookCards);
 
-function createMarkup() {
-  return bookCards.reduce(
+function createMarkup(books) {
+  return books.reduce(
     (
       markup,
       { author, book_image, title, description, list_name, buy_links, _id }
@@ -17,11 +17,11 @@ function createMarkup() {
       return (
         markup +
         `<div class="card-book" data-id="${_id}">
-    <b class="btn-delete" type="button">
+    <button class="btn-delete" type="button">
     <svg class="delete" width="12" height="12">
     <use href="${trashSvg}#icon-trash"></use>
     </svg>
-    </b target="_blank"utton>
+    </button>
     <img
       class="poster"
       src="${book_image}"
@@ -64,7 +64,45 @@ try {
   if (bookCards.length != 0) {
     section.innerHTML = '';
   }
+  section.addEventListener('click', deleteBook);
   section.insertAdjacentHTML('beforeend', createMarkup(bookCards));
 } catch (err) {
   console.log(`err:`, err);
+}
+
+function deleteBook(event) {
+  if (!event.target.closest('.btn-delete')) {
+    return;
+  }
+
+  const delButton = event.target.closest('.btn-delete');
+
+  console.log(`event.target :`, event.target);
+
+  const bookCard = delButton.closest('.card-book');
+  console.dir(bookCard);
+
+  const currentBookId = bookCard.dataset.id;
+
+  removeBookFromLocalStorage(currentBookId);
+}
+
+function removeBookFromLocalStorage(id) {
+  let currentBookArr = JSON.parse(localStorage.getItem('bookShopList'));
+  let indexOfDel;
+  console.log(`currentBookArr:`, currentBookArr);
+  currentBookArr.map((book, index) => {
+    if (book._id === id) {
+      indexOfDel = index;
+    }
+    return book;
+  });
+
+  
+  currentBookArr.splice(indexOfDel, 1)
+
+  localStorage.setItem('bookShopList', JSON.stringify(currentBookArr))
+
+  section.innerHTML = createMarkup(JSON.parse(localStorage.getItem('bookShopList')))
+
 }
