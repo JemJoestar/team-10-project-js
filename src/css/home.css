@@ -11,7 +11,7 @@
   /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
 }
 
-.category-title {
+.categories-title {
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
@@ -21,7 +21,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .category-title {
+  .categories-title {
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
@@ -86,11 +86,15 @@
 }
 
 .bookinfo-title {
-  font-size: 1.2em;
   color: var(--main-text-color); /* Используем переменную для цвета текста */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  font-size: 16px;
+  letter-spacing: -0.64px;
+  line-height: 18px; /* 112.5% */
+  font-weight: 700;
 }
 
 .bookinfo-author {
@@ -99,7 +103,7 @@
   font-weight: 400;
   line-height: 14px; /* 116.667% */
   letter-spacing: -0.48px;
-  color: var(--gray-text-color); /* Используем переменную для цвета текста */
+  color: var(--gray-color); /* Используем переменную для цвета текста */
 }
 
 .hidden-book {
@@ -195,6 +199,10 @@
   }
   .book-card {
     align-items: baseline;
-    width: calc(20% - 20px); /* Пять карточек в строке с отступами между ними */
+    width: calc(20% - 24px); /* Пять карточек в строке с отступами между ними */
+  }
+
+  .see-more-btn {
+    margin-top: 32px;
   }
 }
