@@ -16,11 +16,15 @@
     fill: var(--white-color);
 }
 
-.dark .header-item-link.current,
-.dark .header-item-link:hover,
-.dark .header-item-link:focus {
+.dark .header-item-link.current{
     color: var(--dark-bg-color);
     fill: var(--dark-bg-color);
+}
+
+.dark .header-item-link:hover,
+.dark .header-item-link:focus {
+    color: var(--yellow-accent-color);
+    fill: var(--yellow-accent-color);
 }
 
 /* .dark .header-item-link:hover,
@@ -71,7 +75,8 @@
     color: var(--white-color);
 }
 
-.dark .bookinfo-author {
+.dark .bookinfo-author,
+.modal-rmv-message  {
     color: var(--gray-color);
 }
 
