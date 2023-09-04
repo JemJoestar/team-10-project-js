@@ -1,8 +1,8 @@
 <div class="backdrop backdrop-js is-hidden">
   <div class="modal modal-js">
     <div class="loader loader-js is-hidden"></div>
-    <button class="modal-close-btn">
-      <svg class="modal-close-icon" width="14" height="14">
+    <button type="button" aria-label="Close" class="modal-close-btn">
+      <svg class="modal-close-icon" width="24" height="24">
         <use href="./images/icon.svg#icon-x-close"></use>
       </svg>
     </button>
@@ -23,7 +23,12 @@
               class="modal-amazon-link modal-link"
               target="_blank"
               rel="noreferrer noopener"
-              ><img alt="Amazon"
+              aria-label="AmazonShop"
+              ><img
+                src="#"
+                srcset="#"
+                alt="Amazon"
+                class="shoplist-img amazon-img"
             /></a>
           </li>
 
@@ -33,7 +38,12 @@
               class="modal-apple-link modal-link"
               target="_blank"
               rel="noreferrer noopener"
-              ><img alt="Apple Books"
+              aria-label="AppleBooksShop"
+              ><img
+                src="#"
+                srcset="#"
+                alt="Apple Books"
+                class="shoplist-img apple-img"
             /></a>
           </li>
 
@@ -43,24 +53,28 @@
               class="modal-bookshop-link modal-link"
               target="_blank"
               rel="noreferrer noopener"
-              ><img alt="Bookshop" />O</a
-            >
+              aria-label="BookshopShop"
+              ><img
+                src="#"
+                srcset="#"
+                alt="Bookshop"
+                class="shoplist-img bookshop-img"
+            /></a>
           </li>
         </ul>
       </div>
+    </div>
+    <div class="modal-shop-btn">
+      <button
+        class="modal-add-btn is-hidden"
+        type="button"
+        aria-label="AddToCart"
+      ></button>
 
-      <div class="modal-shop-btn">
-        <button class="modal-add-btn is-hidden" type="button"></button>
-
-        <!-- <button class="modal-rmv-btn" type="button">
-          remove from the shopping list
-        </button> -->
-
-        <p class="modal-rmv-message is-hidden">
-          Сongratulations! You have added the book to the shopping list. To
-          delete, press the button “Remove from the shopping list”.
-        </p>
-      </div>
+      <p class="modal-rmv-message is-hidden">
+        Сongratulations! You have added the book to the shopping list. To
+        delete, press the button “Remove from the shopping list”.
+      </p>
     </div>
   </div>
 </div>

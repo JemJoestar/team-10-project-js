@@ -1,4 +1,11 @@
 import axios from 'axios';
+import amazonImg from "./modal-images/amazon@1x.png";
+import amazonImg2 from "./modal-images/amazon@2x.png";
+import appleImg from "./modal-images/apple@1x.png";
+import appleImg2 from "./modal-images/apple@2x.png";
+import bookshopImg from "./modal-images/bookshop@1x.png";
+import bookshopImg2 from "./modal-images/bookshop@2x.png";
+
 
 
 // зберігаємо посилання на елементи в об'єкті
@@ -14,9 +21,32 @@ bookDescr: document.querySelector('.modal-book-descr'),
 amazonLink: document.querySelector('.modal-amazon-link'),
 appleLink: document.querySelector('.modal-apple-link'),
 bookshopLink: document.querySelector('.modal-bookshop-link'),
+amazonImage: document.querySelector('.amazon-img'),
+appleImage: document.querySelector('.apple-img'),
+bookshopImage: document.querySelector('.bookshop-img'),
 addBtn: document.querySelector('.modal-add-btn'),
 rmvMsg: document.querySelector('.modal-rmv-message'),
 }
+
+// LOADER 
+
+class Loader {
+  bookLoaderEl = document.querySelector('.loader-js');
+
+  show() {
+    this.bookLoaderEl.classList.remove('is-hidden');
+  }
+
+  hide() {
+    this.bookLoaderEl.classList.add('is-hidden');
+  }
+
+  getEl() {
+    return this.bookLoaderEl;
+  }
+}
+
+const loader = new Loader();
 
 
 // змінні у які буде записана інфорамція про книгу і додані у локал стор. книги
@@ -57,7 +87,7 @@ async function openModal(event) {
     event.preventDefault();
     // консоль щоб побачити чи приходить айдішник з арі
     console.log(event.target.parentNode.dataset.bookId);
-    
+  loader.show();
     try {
     //   отримання правильного айді при кліку по книзі
     bookData = await getBookInfo(event.target.parentNode.dataset.bookId);
@@ -72,6 +102,13 @@ async function openModal(event) {
     globalRefs.bookTitle.textContent = bookData.title;
     globalRefs.bookAuthor.textContent = bookData.author;
     globalRefs.bookDescr.textContent = bookData.description;
+    globalRefs.amazonImage.src = amazonImg;
+    globalRefs.amazonImage.srcset = `${amazonImg} 1x, ${amazonImg2} 2x`;
+    globalRefs.appleImage.src = appleImg;
+    globalRefs.appleImage.srcset = `${appleImg} 1x, ${appleImg2} 2x`;
+    globalRefs.bookshopImage.src = bookshopImg;
+    globalRefs.bookshopImage.srcset = `${bookshopImg} 1x, ${bookshopImg2} 2x`;
+      
     
     // отримуємо посилання на магазини
     const amazonURL = bookData.buy_links.find(
@@ -93,8 +130,9 @@ async function openModal(event) {
     
 // перевіряємо чи додана кника в локал стор
     bookAddedCheck();
-    document.body.style.overflow = 'hidden';
-    
+      document.body.style.overflow = 'hidden';
+      
+    loader.hide();
   } catch {
     console.error('Error');
   }

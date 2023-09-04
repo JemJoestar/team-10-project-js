@@ -1,3 +1,4 @@
+/* BACKDROP STYLES */
 .backdrop {
   position: fixed;
   z-index: 100;
@@ -10,11 +11,7 @@
   overflow: hidden;
 }
 
-.backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
+/* MODAL STYLES */
 
 .modal {
   max-width: 335px;
@@ -31,11 +28,7 @@
   border-radius: 18px;
 }
 
-.modal.is-hidden {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.4);
-  visibility: 0;
-}
+/* MODAL CLOSE BUTTON */
 
 .modal-close-btn {
   position: absolute;
@@ -47,20 +40,20 @@
   padding: 0;
   width: 24px;
   height: 24px;
-  background: inherit;
+  background: transparent;
   border: none;
   color: var(--black-color);
   cursor: pointer;
 }
-
-.modal-close-icon:hover,
-.modal-close-icon:focus {
-  color: var(--main-accent-color);
-}
-
 .modal-close-icon {
-  fill: currentColor;
+  stroke: var(--black-color);
 }
+
+.modal-close-icon:hover {
+  stroke: var(--main-accent-color);
+}
+
+/* BOOK INFORMATION STYLES */
 
 .modal-book-cover {
   display: block;
@@ -74,9 +67,11 @@
 
 .modal-book-title {
   margin-bottom: 4px;
+  padding-right: 5px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
+  letter-spacing: -0.64px;
   color: var(--black-color);
 }
 
@@ -85,6 +80,7 @@
   font-style: italic;
   font-size: 12px;
   line-height: 1.16;
+  letter-spacing: -0.48px;
   color: var(--gray-color);
 }
 
@@ -99,6 +95,8 @@
   color: var(--black-color);
 }
 
+/* SHOPS LIST */
+
 .modal-shops-list {
   display: flex;
   align-items: center;
@@ -107,13 +105,17 @@
   list-style: none;
 }
 
-.modal-link:hover,
-.modal-link:focus {
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+.shoplist-img {
+  filter: grayscale(100%);
+}
+.shoplist-img:hover {
+  filter: grayscale(100%);
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
-.modal-add-btn,
-.modal-rmv-btn {
+/* ADD TO SHOPPING LIST BUTTON */
+
+.modal-add-btn {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -124,67 +126,105 @@
   text-align: center;
   font-weight: 700;
   font-size: 14px;
+  font-style: normal;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.14px;
   text-transform: uppercase;
   color: inherit;
   cursor: pointer;
 }
 
-.modal-add-btn:hover,
-.modal-add-btn:focus {
+.modal-add-btn:hover {
   color: var(--white-color);
   background-color: var(--main-accent-color);
 }
 
-.modal-rmv-message.is-hidden,
-.loader.is-hidden {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
+/* REMOVE FROM SHOPPING LIST MESSAGE */
 
 .modal-rmv-message {
   margin-left: auto;
   margin-right: auto;
 
+  padding-top: 8px;
   padding-left: 5px;
   padding-right: 5px;
   max-width: 242px;
   font-size: 10px;
   line-height: 1.2;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.4px;
   text-align: center;
   color: rgba(17, 17, 17, 0.5);
 }
 
-/*-------------TABLET------------*/
+/* Loader */
+
+.loader {
+  border: 16px solid var(--gray-color);
+  border-top: 16px solid var(--main-accent-color);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 30%;
+  left: 33%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* IS-HIDDEN STYLES */
+
+.modal-rmv-message.is-hidden,
+.loader.is-hidden,
+.modal.is-hidden,
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-rmv-message.is-hidden {
+  position: absolute;
+}
+
+.modal.is-hidden {
+  transform: translate(-50%, -50%) scale(0.4);
+}
+
+/*-------------TABLET & DESKTOP------------*/
 
 @media screen and (min-width: 768px) {
+  /* Modal styles T&D*/
+
   .modal {
     max-width: 579px;
-    min-height: 465px;
     padding-left: 40px;
     padding-right: 40px;
   }
 
+  /* Close Modal Button T&D*/
   .modal-close-btn {
     top: 24px;
     right: 24px;
-    width: 28px;
-    height: 28px;
-  }
-
-  .modal-close-icon {
     width: 24px;
     height: 24px;
   }
-
+  /* Book Information T&D*/
   .modal-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 24px;
+    padding-bottom: 40px;
   }
 
   .modal-book-cover {
@@ -201,54 +241,38 @@
     margin-bottom: 8px;
     font-size: 24px;
     line-height: 1.16;
+    letter-spacing: -0.96px;
   }
 
   .modal-book-author {
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 1.2;
+    letter-spacing: -0.56px;
   }
 
   .modal-book-descr {
     margin-bottom: 20px;
   }
 
-  .modal-shop-btn {
-    height: 64px;
-    width: 100%;
-    padding: 20px 20px;
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  .modal-add-btn,
-  .modal-rmv-btn {
+  /*  Add To Shopping List Button T&D*/
+  .modal-add-btn {
     width: 100%;
     padding: 20px 0;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: -0.18px;
   }
-
+  /* Remove From Shopping List Message  T&D*/
   .modal-rmv-message {
     max-width: 324px;
-    padding: 0;
     font-size: 12px;
-    line-height: 1.1;
+    line-height: 1.16;
+    letter-spacing: -0.48px;
   }
-}
-
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  /* Loader T&D*/
+  .loader {
+    top: 35%;
+    left: 41%;
   }
 }
