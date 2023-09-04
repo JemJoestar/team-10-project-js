@@ -59,7 +59,7 @@
 }
 
 .modal-close-icon {
-  fill: currentColor;
+  stroke: currentColor;
 }
 
 .modal-book-cover {
