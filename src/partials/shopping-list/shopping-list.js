@@ -35,5 +35,9 @@ function createMarkup() {
   );
 }
 console.log(createMarkup(bookCards))
+try{
 
-section.insertAdjacentHTML('beforeend', createMarkup(bookCards));
+  section.insertAdjacentHTML('beforeend', createMarkup(bookCards));
+}catch(err){
+  
+}

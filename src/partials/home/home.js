@@ -2,46 +2,51 @@ import { fetchPopularBooks, fetchCategoryBooks } from './fetchBooks';
 
 // Функция для отображения популярных книг в каждой категории
 async function renderPopularBooks() {
-  changeSelected();
-  // Удаляем предыдущие названия
-  const genresList = document.querySelector('.books-output-by-category');
-  genresList.innerHTML = '';
+  try{
 
-  // Добавляем элемент с названием "Best Sellers Books"
-  genresList.insertAdjacentHTML(
-    'afterbegin',
-    createTitleMarkup('Best Sellers Books')
-  );
-
-  const popularBooksData = await fetchPopularBooks();
-
-  genresList.innerHTML += popularBooksData
-    .map(({ list_name, books }) => {
-      let numberOfBooksToDisplay = 5; // По умолчанию на больших экранах показываем 5 книг
+    changeSelected();
+    // Удаляем предыдущие названия
+    const genresList = document.querySelector('.books-output-by-category');
+    genresList.innerHTML = '';
+    
+    // Добавляем элемент с названием "Best Sellers Books"
+    genresList.insertAdjacentHTML(
+      'afterbegin',
+      createTitleMarkup('Best Sellers Books')
+      );
+      
+      const popularBooksData = await fetchPopularBooks();
+      
+      genresList.innerHTML += popularBooksData
+      .map(({ list_name, books }) => {
+        let numberOfBooksToDisplay = 5; // По умолчанию на больших экранах показываем 5 книг
 
       const initialBooks = books.slice(0, numberOfBooksToDisplay);
       const booksHTML = initialBooks.map(book => createBookHTML(book)).join('');
 
       return `
-        <div class="category-block">
-          <h2 class="category-info">${list_name}</h2>
-          <div class="book-row">${booksHTML}</div>
-          <button class="see-more-btn" aria-label="See More Books">See More</button>
-        </div>
+      <div class="category-block">
+      <h2 class="category-info">${list_name}</h2>
+      <div class="book-row">${booksHTML}</div>
+      <button class="see-more-btn" aria-label="See More Books">See More</button>
+      </div>
       `;
     })
     .join('');
-
-  // Назначаем обработчик события для каждой кнопки "See More"
-  const seeMoreButtons = document.querySelectorAll('.see-more-btn');
-  seeMoreButtons.forEach(button => {
-    // Получаем название категории из блока "category-info" и передаем в обработчик
-    const categoryTitle = button
+    
+    // Назначаем обработчик события для каждой кнопки "See More"
+    const seeMoreButtons = document.querySelectorAll('.see-more-btn');
+    seeMoreButtons.forEach(button => {
+      // Получаем название категории из блока "category-info" и передаем в обработчик
+      const categoryTitle = button
       .closest('.category-block')
       .querySelector('.category-info').textContent;
-    button.dataset.category = categoryTitle;
-    button.addEventListener('click', showMoreBooks);
-  });
+      button.dataset.category = categoryTitle;
+      button.addEventListener('click', showMoreBooks);
+    });
+  }catch{
+
+  }
 }
 
 // Функция для создания HTML-разметки книги
@@ -99,13 +104,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Функция selected
 function changeSelected() {
-  console.dir(allCategories);
-  const categoryListEl = allCategories.parentNode;
-  const categoryArr = categoryListEl.children;
-  [...categoryArr].forEach(category => category.classList.remove('selected'));
-  allCategories.classList.add('selected');
+  try{
+
+    console.dir(allCategories);
+    const categoryListEl = allCategories.parentNode;
+    const categoryArr = categoryListEl.children;
+    [...categoryArr].forEach(category => category.classList.remove('selected'));
+    allCategories.classList.add('selected');
+  }catch(err){
+
+  }
 }
 
 // Назначаем обработчик события на элемент .all-categories
-const allCategories = document.querySelector('.all-categories');
-allCategories.addEventListener('click', renderPopularBooks);
+try{
+
+  const allCategories = document.querySelector('.all-categories');
+  allCategories.addEventListener('click', renderPopularBooks);
+  
+}catch(err){
+  
+}

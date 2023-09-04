@@ -26,20 +26,24 @@ let bookShoppingList =
     JSON.parse(localStorage.getItem('bookShopList')) || [];
 
 // додаємо лісенери для відкриття та закриття модалки 
+try{
 
-globalRefs.bookList.addEventListener('click', openModal);
-globalRefs.closeModalBtn.addEventListener('click', closeModal);
-
-// Функція закриття модалки при кліку на бекдроп
-
-globalRefs.backdrop.addEventListener('click', event => {
-  if (event.target.classList.contains('backdrop-js')) {
-    closeModal();
-  }
-});
-
-// закриття при кліку на esc
-
+  globalRefs.bookList.addEventListener('click', openModal);
+  globalRefs.closeModalBtn.addEventListener('click', closeModal);
+  
+  // Функція закриття модалки при кліку на бекдроп
+  
+  globalRefs.backdrop.addEventListener('click', event => {
+    if (event.target.classList.contains('backdrop-js')) {
+      closeModal();
+    }
+  });
+}catch(err){
+  
+}
+  
+  // закриття при кліку на esc
+  
 document.addEventListener('keydown', onEscPress);
 
 function onEscPress(event) { 

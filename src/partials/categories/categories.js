@@ -6,24 +6,29 @@ const refs = {
 };
 
 async function renderCategories() {
-  const allCaregories = await getAllCategories();
-  console.log(`allCaregories:`, allCaregories);
+  try{
 
-  const marcup = allCaregories
+    const allCaregories = await getAllCategories();
+    console.log(`allCaregories:`, allCaregories);
+    
+    const marcup = allCaregories
     .map(({ list_name }) => {
       return `<li class="category" tabindex="0" data-category="${list_name}">
-        ${list_name}
-        </li>`;
+      ${list_name}
+      </li>`;
     })
     .join('');
-
-  refs.categoryListEl.insertAdjacentHTML("beforeend", marcup);
-
-  [...refs.categoryListEl.children].forEach(category => {
-    if(category.dataset.category){
+    
+    refs.categoryListEl.insertAdjacentHTML("beforeend", marcup);
+    
+    [...refs.categoryListEl.children].forEach(category => {
+      if(category.dataset.category){
         category.addEventListener('click', onSelectCategory);
-    }
-  });
+      }
+    });
+  }catch(err){
+    
+  }
 }
 
 // Выбор категории
