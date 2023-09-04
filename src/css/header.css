@@ -14,24 +14,24 @@
 
 .header-container {
     width: 375px;
-    padding: 18px 20px;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    padding: 18px 20px;
 
 }
 @media only screen and (min-width: 768px) {
 .header-container {
         width: 768px;
-        padding: auto 32px;
+        padding: 0 32px;
         
     }
 }
 @media only screen and (min-width: 1440px) {
     .header-container {
         width: 1440px;
-        padding: auto 24px;
+        padding: 0 24px;
     }
 }
 
@@ -65,10 +65,9 @@
 
 .header-item-link:hover,
 .header-item-link:focus {
-    border-radius: 36px;
-        background: #EAC645;
+   color: #EAC645;
         display: flex;
-        padding: 8px 16px;
+      
         align-items: flex-start;
         gap: 10px;
 }
@@ -101,7 +100,7 @@
     display: none;
     align-items: center;
     gap: 24px;
-
+    padding: 19px 0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -111,9 +110,9 @@
 }
 .checkbox-ios {
     display: inline-block;
-    height: 28px;
-    line-height: 28px;
-    margin-right: 10px;
+    height: 20px;
+    line-height: 22px;
+    /* margin-right: 10px; */
     position: relative;
     vertical-align: middle;
     font-size: 14px;
@@ -124,8 +123,8 @@
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    width: 56px;
-    height: 28px;
+    width: 40px;
+    height: 20px;
     /* border: 1px solid rgba(0, 0, 0, .1); */
     border-radius: 25%/50%;
     vertical-align: top;
@@ -139,8 +138,8 @@
     top: 1px;
     left: 1px;
     display: inline-block;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: white;
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
@@ -167,7 +166,7 @@
 }
 
 .checkbox-ios input[type=checkbox]:checked+.checkbox-ios-switch:before {
-    transform: translateX(28px);
+    transform: translateX(20px);
 }
 
 /* Hover */
@@ -333,13 +332,16 @@
     border-radius: 18px;
     border: 1.5px solid #111;
     background: #4F2EE8;
-   width: 184px; 
-   height: 45px; 
+
+    width: 184px; 
+    height: 45px; 
+    padding-bottom: 13px;
    cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
     .Authorization {
         display: block;
+        
     }
 }
 .range{
@@ -349,4 +351,6 @@
 .block {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 14px;
 }
