@@ -2,8 +2,8 @@ import {
   createUser,
   signInUser,
   signOutUser,
-  onAuthUserChanged,
   importShoppingListToFirebase,
+  authUser,
 } from './firebase';
 
 const form = document.getElementById('form-login-js');
@@ -18,42 +18,60 @@ const refs = {
   closeFormBtn: document.getElementById('btn-close-form'),
 };
 
+refs.openFormBtn.textContent = 'Sing up';
 refs.openFormBtn.addEventListener('click', onOpenLoginForm);
 
 //відкриваємо форму та вішаємо слухачів
 function onOpenLoginForm() {
-  form.addEventListener('submit', onSubmit);
-  refs.signIn.addEventListener('click', onSignIn);
-  refs.signUp.addEventListener('click', onSignUp);
-  refs.closeFormBtn.addEventListener('click', onCloseLoginForm);
+  if (refs.openFormBtn.textContent === 'Sing up') {
+    form.addEventListener('submit', onSubmit);
+    refs.signIn.addEventListener('click', onSignIn);
+    refs.signUp.addEventListener('click', onSignUp);
+    refs.closeFormBtn.addEventListener('click', onCloseLoginForm);
 
-  refs.backdrop.classList.remove('is-hidden');
+    refs.backdrop.classList.remove('is-hidden');
+  }
+  if (refs.openFormBtn.className.includes('auth')) {
+    refs.backdrop.classList.remove('is-hidden');
+    form.style.display = 'none';
+    refs.closeFormBtn.addEventListener('click', onCloseLoginForm);
+  }
 }
 // дії при відправці форми
 async function onSubmit(event) {
   event.preventDefault();
 
-  const { userEmail, userPassword } = parseEmailAndPassword();
+  const { userName, userEmail, userPassword } = parseEmailAndPassword();
 
   if (refs.submitBtn.textContent === 'SIGN UP') {
-    createUser(userEmail, userPassword);
+    createUser(userName, userEmail, userPassword);
   } else {
     signInUser(userEmail, userPassword);
-    refs.logOutBtn.addEventListener('click', outUser, { once: true });
   }
+  refs.logOutBtn.addEventListener('click', outUser, { once: true });
   form.reset();
 
   //якщо користувач авторизувався, тоді записуємо книги з localStorage в firebase
-  if (onAuthUserChanged()) {
+  const displayName = authUser?.currentUser?.displayName;
+
+  if (displayName) {
+    refs.openFormBtn.classList.add('auth');
     const dataFromLocalStorage = localStorage.getItem('bookShopList');
     const parsedData = JSON.parse(dataFromLocalStorage);
     importShoppingListToFirebase(parsedData);
+
+    onCloseLoginForm();
+    refs.openFormBtn.textContent = displayName;
   }
 }
 
-//очищюємо інтервал коли User вийшов
+//дії коли Юзер вийшов
 function outUser() {
   signOutUser();
+  onCloseLoginForm();
+  refs.openFormBtn.classList.remove('auth');
+  refs.openFormBtn.textContent = 'Sing up';
+  form.style.display = 'block';
 }
 
 //змінюємо вид форми при натиснені SignIn
