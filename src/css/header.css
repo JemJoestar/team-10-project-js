@@ -267,7 +267,7 @@
 .mobile-menu {
 
 position: absolute;
-top:-247px;
+top:247px;
 left:129px;
 /* margin: 0 auto; */
 /* padding-top: 120px; */
@@ -371,11 +371,17 @@ stroke:#EAC645;
 align-items: center;
 }
 .aut{
-    position: absolute;
-    top:84px;
-    left:20px;
+     
     color: #FFF;
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.44px;
+}
+.user-name{
+    position: absolute;
+    display: flex;
+    gap:9px;
+    top:84px;
+    left:20px;
+
 }
