@@ -28,7 +28,7 @@
 })();
 
 const pathName = document.location.pathname
-if (pathName == '/team-10-project-js/index.html') {
+if (pathName == '/index.html'&&'/team-10-project-js/index.html') {
   const page = document.querySelector("#home");
   page.classList.add('current');
 } else {
