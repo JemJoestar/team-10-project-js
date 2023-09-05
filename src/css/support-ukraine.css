@@ -1,8 +1,8 @@
 .support-ukraine-container{
     width: 335px;
     height: 352px;
-    top: 372px;
-    left: 20px;
+    /* top: 372px; */
+    /* left: 20px; */
     padding-top: 24px;
     padding-bottom: 20px;
     padding-left: 40px;
@@ -31,16 +31,17 @@
     display: flex;
     /* padding-top: 24px; */
     /* padding-left: 40px; */
-    padding-bottom: 20px;
+    margin-bottom: 40px;
+    /* padding-bottom: 20px; */
     gap: 20px;
     align-items: center;
 }
 
-/* @media screen and (min-width: 768px){
+@media screen and (min-width: 768px){
     .support-ukraine-div{
-        margin-bottom: 25px;
+        margin-bottom: 40px;
     }
-} */
+}
 
 .ukraine-title{
     font-family: var(--standart-font-family);
@@ -140,24 +141,33 @@
 /*--------------------Founds list--------------------*/
 
 
-.founds-list {
-    /* width: 159px; */
-    /* padding-left: 40px; */
-    /* gap: 20px; */
-}
-
 .founds-container {
-    width: 300px;
+    width: 250px;
     height: 188px;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     margin-right: 0px;
 }
 
 @media screen and (min-width: 768px){
     .founds-container{
-        height: 340px;
+        height: 292px;
+        margin-bottom: 24px;
     }
+}
+
+/* @media screen and (min-width: 1440px){
+    .founds-container{
+
+    }
+} */
+
+.founds-list {
+    /* width: 159px;
+    height: 188px; */
+    /* width: 159px; */
+    /* padding-left: 40px; */
+    /* gap: 20px; */
 }
 
 .found-item{
@@ -165,10 +175,11 @@
     align-items: center;
     flex-direction: row;
     gap: 16px;
+    margin-bottom: 20px;
 }
 
 .found-item-link{
-    margin-left: 16px;
+    /* margin-left: 16px; */
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -181,7 +192,7 @@
 }
 
 .found-img {
-    transition: transform 500ms ease-out;
+    transition: transform 100ms ease-out;
 }
 
 .found-img:hover {
