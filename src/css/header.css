@@ -64,7 +64,7 @@
 }
 
 .header-item-link:hover,
-.header-item-link:focus {
+.header-item-link:focus { 
    color: var(--yellow-accent-color);
    fill: currentColor;
         display: flex;
