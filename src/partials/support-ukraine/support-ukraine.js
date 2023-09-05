@@ -30,7 +30,7 @@ function foundsMarkup(founds) {
           <li class="found-item swiper-slide">
             <span class="found-index">${foundIndex}</span>
             <a href="${found.url}" target="_blank" class='found-item-link' crossorigin="anonymous" rel="noopener noreferrer nofollow" aria-label="${found.title}">
-            <img class="found-img" src="${foundImage}" alt="${found.title}" loading="lazy">
+              <img class="found-img" src="${foundImage}" alt="${found.title}" loading="lazy">
             </a>
           </li>
         `;
