@@ -152,8 +152,17 @@
     color: rgba(255, 255, 255, 0.60) ;
 }
 
+.dark .card-book {
+    background-color: var(--black-color);
+}
+
+.dark .book-undertitle,
+.dark .author {
+    color: var(--gray-color);
+}
+
 .dark .shopping-list-logo>img:hover {
-    filter: drop-shadow(0 3px 3px #e7e5e541);
+    filter: drop-shadow(0 3px 3px #e7e5e581);
 }
 
 .dark .amazon-logo>img {
