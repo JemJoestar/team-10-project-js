@@ -66,6 +66,7 @@
 .header-item-link:hover,
 .header-item-link:focus {
    color: var(--yellow-accent-color);
+   fill: currentColor;
         display: flex;
       
         align-items: flex-start;
@@ -93,6 +94,13 @@
             padding: 8px 16px;
             align-items: flex-start;
             gap: 10px;
+}
+
+.current.header-item-link:hover,
+.current.header-item-link:focus{
+    color: var(--black-color);
+    fill: currentColor;
+    stroke: currentColor;
 }
 
 
