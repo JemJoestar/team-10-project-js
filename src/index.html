@@ -14,73 +14,8 @@
   <body>
     <div class="container">
       <!-- Хедер -->
-      <header class="header">
-        <div class="header-container">
-          <nav class="header-nav">
-            <a class="header-link link list" href="./index.html"
-              ><svg class="" width="24" height="24">
-                <use href="./images/icon.svg#icon-logo"></use>
-              </svg>
-              <svg class="logo-text" width="77" height="13">
-                <use href="./images/icon.svg#icon-logo-text"></use>
-              </svg>
-            </a>
-            <ul class="list header-list">
-              <li class="header-item">
-                <a class="header-item-link current link" href="./index.html"
-                  >HOME</a
-                > 
-              </li>
-              <li class="header-item">
-                <a
-                  class="header-item-link link"
-                  href="./shopping-list-page.html"
-                  >SHOPPING LIST
-                  <svg class="bag" width="20" height="20">
-                    <use href="./images/icon.svg#icon-cart"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
+      <include src="./partials/header/header.html"></include>
 
-          <div class="block">
-            <label class="checkbox-ios">
-              <input type="checkbox" />
-              <span class="checkbox-ios-switch"></span>
-            </label>
-            <button
-              type="button"
-              class="menu-toggle js-open-menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-            >
-              <svg class="hamburger" width="28" height="28">
-                <use href="./images/icon.svg#icon-burger"></use>
-              </svg>
-            </button>
-            <button type="button" class="Authorization">Authorization</button>
-          </div>
-        </div>
-        <div class="menu-container js-menu-container" id="mobile-menu">
-          <button class="menu-toggle-mobil js-close-menu">
-            <svg class="modal-icon" width="7" height="7">
-              <use href="./images/icon.svg#icon-x-close"></use>
-            </svg>
-          </button>
-
-          <ul class="mobile-menu list">
-            <li><a href="" class="link mobile-link current">HOME</a></li>
-            <li>
-              <a href="" class="mobile-link link"
-                >SHOPPING LIST<svg class="bag" width="20" height="20">
-                  <use href="./images/icon.svg#icon-cart"></use></svg
-              ></a>
-            </li>
-          </ul>
-          <button type="button" class="Authorization">Authorization</button>
-        </div>
-      </header>
       <div class="category-container">
         <div class="side-spot">
           <!-- Список категорій -->
