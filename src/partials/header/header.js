@@ -4,7 +4,7 @@
   const closeMenuBtn = document.querySelector('.js-close-menu');
   const toggleMenu = (e) => {
     e.stopImmediatePropagation()
-    console.log(openMenuBtn)
+    console.log(openMenuBtn) 
     console.log(closeMenuBtn)
     const isMenuOpen =
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
