@@ -2,10 +2,10 @@
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -23,14 +23,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export function createUser(email, password) {
+export function createUser(username, email, password) {
   const auth = getAuth(app);
   createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
-      // Signed in
       const user = userCredential.user;
-      successfulAction('User created.');
+
+      // Додаємо ім'я користувача
+      updateProfile(user, {
+        displayName: username,
+      });
     })
+    .then(() => successfulAction(`User ${username} created.`))
     .catch(error => {
       const errorCode = error.code;
       customErr(error.message);
@@ -43,7 +47,6 @@ export function signInUser(email, password) {
     .then(userCredential => {
       // Signed in
       const user = userCredential.user;
-      successfulAction('The user is authorized.');
       // console.log(auth.currentUser);
     })
     .catch(error => {
@@ -55,29 +58,11 @@ export function signInUser(email, password) {
 export function signOutUser() {
   const auth = getAuth(app);
   signOut(auth)
-    .then(() => {
-      successfulAction('Sign-out successful');
-    })
+    .then(() => {})
     .catch(error => {
       // An error happened.
       customErr(error);
     });
-}
-
-export function onAuthUserChanged() {
-  const auth = getAuth(app);
-  return onAuthStateChanged(auth, user => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      const uid = user.uid;
-      return true;
-      // ...
-    } else {
-      // User is signed out
-      // ...
-      return false;
-    }
-  });
 }
 
 export function importShoppingListToFirebase(parsedData) {
@@ -90,10 +75,10 @@ export function importShoppingListToFirebase(parsedData) {
         'Content-Type': 'application/json',
       },
     }
-  )
-    .then(resp => resp.json())
-    .then(resp => console.log(resp));
+  ).then(resp => resp.json());
 }
+
+export const authUser = getAuth(app);
 
 function successfulAction(message) {
   Notify.success(message);
