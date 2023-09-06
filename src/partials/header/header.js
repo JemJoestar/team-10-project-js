@@ -36,19 +36,32 @@
   });
 })();
 
-const pathName = document.location.pathname
-if (pathName.includes('index')) {
-  const page = document.querySelectorAll(".home")
-  page.forEach(el => {
-      el.classList.add('current')
-    });;
+// const pathName = document.location.pathname
+// if (pathName.includes('index')) {
+//   const page = document.querySelectorAll(".home")
+//   page.forEach(el => {
+//       el.classList.add('current')
+//     });;
   
-} else if (pathName.includes('shopping')) {
-  const pages = document.querySelectorAll(".shopping");
+// } else if (pathName.includes('shopping')) {
+//   const pages = document.querySelectorAll(".shopping");
+//   pages.forEach(el => {
+//       el.classList.add('current')
+//     });;
+// }
+
+const pathName = document.location.pathname
+if (pathName.includes('shopping')) {
+  const pages = document.querySelectorAll(".shopping")
   pages.forEach(el => {
       el.classList.add('current')
     });;
-}
-
+  
+} else  {
+  const pages = document.querySelectorAll(".home")
+  pages.forEach(el => {
+      el.classList.add('current')
+    });;
+    }
 
 
