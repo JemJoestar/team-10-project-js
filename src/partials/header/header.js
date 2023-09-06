@@ -36,17 +36,17 @@
 })();
 
 const pathName = document.location.pathname
-if (pathName.includes('index')) {
-  const page = document.querySelectorAll(".home")
+ if (pathName.includes('shopping')) {
+  const page = document.querySelectorAll(".shopping");
   page.forEach(el => {
       el.classList.add('current')
     });;
-  
-} else if (pathName.includes('shopping')) {
-  const pages = document.querySelectorAll(".shopping");
-  pages.forEach(el => {
+}else{
+  const page = document.querySelectorAll(".home")
+  page.forEach(el => {
       el.classList.add('current')
-    });;
+    });
+  
 }
 
 
