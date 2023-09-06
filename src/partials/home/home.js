@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Функция selected
 function changeSelected() {
   try {
-    console.dir(allCategories);
     const categoryListEl = allCategories.parentNode;
     const categoryArr = categoryListEl.children;
     [...categoryArr].forEach(category => category.classList.remove('selected'));

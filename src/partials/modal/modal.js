@@ -138,7 +138,6 @@ async function openModal(event) {
       
     loader.hide();
   } catch {
-    console.error('Error');
   }}
 }
 
@@ -148,7 +147,6 @@ async function getBookInfo(bookId) {
   const response = await axios.get(
     `https://books-backend.p.goit.global/books/${bookId}`
   );
-    console.log(response.data);
   return await response.data;
 }
   

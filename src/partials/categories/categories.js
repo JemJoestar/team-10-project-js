@@ -9,7 +9,6 @@ const refs = {
 async function renderCategories() {
   try {
     const allCaregories = await getAllCategories();
-    console.log(`allCaregories:`, allCaregories);
 
     const marcup = allCaregories
       .map(({ list_name }) => {
@@ -44,7 +43,6 @@ async function onSelectCategory(event) {
 
 async function renderBooks(currentCategoryName) {
   const books = await findBooksByCategory(currentCategoryName);
-  console.log(`books:`, books);
 
   const bookListTitle = createTitleMarcup(currentCategoryName);
 

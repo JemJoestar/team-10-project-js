@@ -7,7 +7,6 @@ import emptyListImg from "./images/books.png"
 const section = document.querySelector('.shopping-list-js');
 
 const bookCards = JSON.parse(localStorage.getItem('bookShopList'));
-console.log(`bookCards:`, bookCards);
 
 function createMarkup(books) {
   return books.reduce(
@@ -68,7 +67,6 @@ try {
   section.addEventListener('click', deleteBook);
   section.insertAdjacentHTML('beforeend', createMarkup(bookCards));
 } catch (err) {
-  console.log(`err:`, err);
 }
 
 function deleteBook(event) {
@@ -78,10 +76,8 @@ function deleteBook(event) {
 
   const delButton = event.target.closest('.btn-delete');
 
-  console.log(`event.target :`, event.target);
 
   const bookCard = delButton.closest('.card-book');
-  console.dir(bookCard);
 
   const currentBookId = bookCard.dataset.id;
 
@@ -91,7 +87,6 @@ function deleteBook(event) {
 function removeBookFromLocalStorage(id) {
   let currentBookArr = JSON.parse(localStorage.getItem('bookShopList'));
   let indexOfDel;
-  console.log(`currentBookArr:`, currentBookArr);
   currentBookArr.map((book, index) => {
     if (book._id === id) {
       indexOfDel = index;

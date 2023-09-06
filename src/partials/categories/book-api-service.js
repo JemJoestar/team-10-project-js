@@ -7,7 +7,6 @@ export async function getAllCategories() {
 }
 
 export async function findBooksByCategory(category) {
-  console.log(`category:`, category)
   return (await axios({
     url: `${BASE_URL}/category`,
     params: {

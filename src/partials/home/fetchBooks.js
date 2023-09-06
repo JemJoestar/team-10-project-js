@@ -9,7 +9,6 @@ export async function fetchPopularBooks() {
     const { data } = await axios.get(POPULAR_BOOKS_URL);
     return data;
   } catch (error) {
-    console.log(error);
   }
 }
 
@@ -18,6 +17,5 @@ export async function fetchCategoryBooks(category) {
     const { data } = await axios.get(`${CATEGORY_BOOKS_URL}${category}`);
     return data;
   } catch (error) {
-    console.log(error);
   }
 }
