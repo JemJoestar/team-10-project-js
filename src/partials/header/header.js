@@ -2,10 +2,20 @@
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.js-open-menu');
   const closeMenuBtn = document.querySelector('.js-close-menu');
+  const openBtn = document.querySelector(".menu-toggle");
+  const closeBtn = document.querySelector(".menu-toggle-mobil");
   const toggleMenu = (e) => {
     e.stopImmediatePropagation()
     console.log(openMenuBtn) 
     console.log(closeMenuBtn)
+    if (openMenuBtn.getAttribute('aria-expanded') === 'false') {
+      openBtn.classList.add('hidden');
+      closeBtn.classList.remove('hidden');
+    }
+     if (openMenuBtn.getAttribute('aria-expanded') === 'true') {
+       openBtn.classList.remove('hidden');
+       closeBtn.classList.add('hidden');
+    }
     const isMenuOpen =
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
@@ -28,10 +38,12 @@
 })();
 
 const pathName = document.location.pathname
-if (pathName == '/index.html'&&'/team-10-project-js/index.html') {
+if (pathName.includes('index')) {
   const page = document.querySelector("#home");
   page.classList.add('current');
-} else {
+} else if (pathName.includes('shopping')) {
   const page = document.querySelector("#shopping");
   page.classList.add('current');
 }
+
+
