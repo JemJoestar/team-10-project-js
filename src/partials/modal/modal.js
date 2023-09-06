@@ -7,10 +7,9 @@ import bookshopImg from "./modal-images/bookshop@1x.png";
 import bookshopImg2 from "./modal-images/bookshop@2x.png";
 
 
-
 // зберігаємо посилання на елементи в об'єкті
 const globalRefs = {
-bookList: document.querySelector('.books-output-by-category'),
+  bookList: document.querySelector('.books-output-by-category'),
 
 backdrop: document.querySelector('.backdrop-js'),
 closeModalBtn: document.querySelector('.modal-close-btn'),
@@ -90,7 +89,7 @@ async function openModal(event) {
   loader.show();
     try {
     //   отримання правильного айді при кліку по книзі
-    bookData = await getBookInfo(event.target.parentNode.dataset.bookId);
+    bookData = await getBookInfo(event.target.closest(".book-card").dataset.bookId);
     
     globalRefs.bookList.removeEventListener('click', openModal);
       
@@ -98,6 +97,7 @@ async function openModal(event) {
     globalRefs.backdrop.classList.remove('is-hidden');
         globalRefs.addBtn.classList.remove('is-hidden');
     // заповнюємо розмітку правильними данними
+  
     globalRefs.bookCover.src = bookData.book_image;
     globalRefs.bookTitle.textContent = bookData.title;
     globalRefs.bookAuthor.textContent = bookData.author;

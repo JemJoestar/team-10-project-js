@@ -1,4 +1,5 @@
 import { getAllCategories, findBooksByCategory } from './book-api-service';
+import placeholderImg from "../../images/placeholder.png"
 
 const refs = {
   categoryListEl: document.querySelector('.category-list'),
@@ -65,7 +66,7 @@ function createBookListMarcup(books) {
     .map(({ _id, author, title, book_image }) => {
       return `<li class="book-card" data-book-id="${_id}">
       <div class="overlay-item">
-        <img class="book-image" src="${book_image}" alt="${title} cover" loading="lazy">
+        <img class="book-image" src="${book_image || placeholderImg}" alt="${title} cover" loading="lazy">
         <p class = "book-overlay">quick view</p>
         </div>
         <h2 class="bookinfo-title">${title}</h2>

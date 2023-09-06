@@ -2,6 +2,7 @@ import trashSvg from '../../images/icon.svg';
 import appleBook from './images/apple-book.png';
 import amazonLogo from './images/amazon-logo.png';
 import bookShop from './images/book-shop.png';
+import emptyListImg from "./images/books.png"
 
 const section = document.querySelector('.shopping-list-js');
 
@@ -102,7 +103,24 @@ function removeBookFromLocalStorage(id) {
   currentBookArr.splice(indexOfDel, 1)
 
   localStorage.setItem('bookShopList', JSON.stringify(currentBookArr))
+  if(currentBookArr.length === 0){
+    renderEmptyList()
+    return
+  }
 
   section.innerHTML = createMarkup(JSON.parse(localStorage.getItem('bookShopList')))
 
+}
+
+function renderEmptyList(){
+  section.innerHTML = `<div class="empty-list-js">
+  <p class="shopping-list-text"> 
+    This page is empty, add some books and proceed to order.
+  </p>
+  <img
+    class="img-spl"
+    src="${emptyListImg}"
+    alt="books"
+  />
+</div>`
 }

@@ -1,13 +1,19 @@
 .category-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   overflow: scroll;
   list-style: none;
   height: 228px;
   max-width: 335px;
   overflow: -moz-scrollbars-vertical;
   overflow-x: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  .categories-list {
+    gap: 32px;
+  }
 }
 
 .category-list::-webkit-scrollbar {

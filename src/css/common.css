@@ -11,6 +11,7 @@
   --gray-color: #b4afaf;
   --white-color: #ffffff;
   --black-color: #000000;
+  --gray-darck-theme-color: rgba(256, 256, 256, 60%);
   --standart-font-family: 'DM Sans', sans-serif;
   --gradient: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
