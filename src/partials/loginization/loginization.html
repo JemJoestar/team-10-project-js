@@ -1,16 +1,17 @@
-<div class="backdrop is-hidden" id="backdrop-js">
-  <div class="modal modal-js">
-    <button class="modal-close-btn" id="btn-close-form">
-      <svg class="modal-close-icon" width="14" height="14">
+<div class="backdrop backdrop-login is-hidden" id="backdrop-js">
+  <div class="modal modal-login modal-js">
+    <button class="modal-close-btn " id="btn-close-form">
+      <svg class="modal-close-icon close-icon-login" width="14" height="14">
         <use href="./images/icon.svg#icon-x-close"></use>
       </svg>
     </button>
 
-    <div class="modal-container">
+    <div class="modal-container modal-container-login">
       <form class="form-login" id="form-login-js">
         <input name="userName" type="text" placeholder="NAME" required />
         <input name="userEmail" type="email" placeholder="EMAIL" required />
         <input
+          class="password"
           name="userPassword"
           type="password"
           placeholder="PASSWORD"
@@ -20,9 +21,11 @@
         />
         <button type="submit" id="btn-submit-form">SIGN UP</button>
       </form>
-      <a href="" id="sign-up">SIGN UP</a>
-      <a href="" id="sign-in">SIGN IN</a>
-      <button type="button" id="btn-log-out">Log out</button>
+      <div class="form-login-sign">
+        <a href="" id="sign-up">SIGN UP</a>
+        <a href="" id="sign-in">SIGN IN</a>
+      </div>
+      <!-- <button type="button" id="btn-log-out">Log out</button> -->
     </div>
   </div>
 </div>
