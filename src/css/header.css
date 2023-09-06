@@ -367,10 +367,15 @@ display: none;
     
    cursor: pointer;
 }
+
+.icon-caret-down{
+    fill: currentColor;
+}
+
 @media only screen and (min-width: 768px) {
     .Authorization {
-        display: block;
-        
+        display: flex;
+        gap: 6px;
     }
 }
 .range{
