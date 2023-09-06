@@ -54,15 +54,7 @@
   flex-direction: column; */
 }
 
-.book-card {
-  cursor: pointer;
-  position: relative;
-  max-width: 335px;
-  height: auto; /* Изменено на auto, чтобы высота масштабировалась по содержимому */
-  overflow: hidden;
-  flex-direction: column;
-  display: inline-block;
-}
+
 
 /* Добавляем quick view  */
 .book-card:hover .book-overlay,
@@ -93,7 +85,7 @@
   overflow-wrap: break-word;
   /* text-wrap: balance; */
   color: var(--main-text-color); /* Используем переменную для цвета текста */
-  white-space: nowrap;
+  white-space: break-spaces;
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -147,6 +139,17 @@
 }
 /* Для главной страницы медиа правила */
 
+.book-card {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  max-width: 335px;
+  height: auto; /* Изменено на auto, чтобы высота масштабировалась по содержимому */
+  overflow: hidden;
+  flex-direction: column;
+  display: inline-block;
+}
+
 /* Для планшета (ширина экрана 768px и выше) */
 @media only screen and (min-width: 768px) {
   .container {
@@ -162,9 +165,8 @@
 
   .book-card {
     display: flex;
-    width: calc(
-      33.33% - 25px
-    ); /* Три блока в строке с учетом отступов между ними */
+    width: 100%;
+ /* Три блока в строке с учетом отступов между ними */
     height: auto;
     /* max-width: 218px;
     max-height: 366px; */
@@ -196,6 +198,11 @@
   .book-card:nth-last-child(-n + 2) {
     /* color: tomato; */
     display: flex;
+  }
+  .book-card{
+    width: calc(
+      33.33% - 25px
+    );
   }
 }
 /* Пк */
