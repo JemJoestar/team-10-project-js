@@ -56,7 +56,7 @@
 /* style by category */
 
 .dark .category {
-    color: rgba(255, 255, 255, 0.60);;
+    color: var(--gray-darck-theme-color);
 }
 
 .dark .category:hover,
@@ -149,7 +149,7 @@
 
 /* style bu shopping list */
 .dark .shopping-list-text {
-    color: rgba(255, 255, 255, 0.60) ;
+    color: var(--gray-darck-theme-color);
 }
 
 .dark .card-book {
