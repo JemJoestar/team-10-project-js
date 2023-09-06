@@ -222,7 +222,7 @@
 }
 
 .menu-container {
-    position: fixed;
+    position: relative;
     display: flex;
     flex-direction: column;
     overflow: scroll;
@@ -263,12 +263,25 @@
     align-items: end;
 
 }
+ .mobile-menu-container{ 
+position: fixed;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+/* margin: auto; */
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+} 
 
 .mobile-menu {
 
-position: absolute;
-top:247px;
-left:129px;
+/* position: absolute; */
+/* top:247px; */
+/* left:129px; */
 /* margin: 0 auto; */
 /* padding-top: 120px; */
 display: flex;
@@ -280,14 +293,15 @@ gap: 16px;
 
 .mobile-link {
 
-    display: block;
-   
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #FFF;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1.28;
-        letter-spacing: -0.56px;
-        text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
 
 }
 
@@ -308,11 +322,20 @@ gap: 16px;
 
 
 }
+.img-modal{
+    background-image: url(../partials/header/header_images/Group6.jpg);
+    position: absolute;
+    /* bottom: -170px; */
+    width: 450.001px;
+    height: 439px;
+    transform: rotate(-15deg);
+    flex-shrink: 0;
 
+}
 
 .bag{
-    stroke: white;
-        align-items: end;
+    fill: currentColor;
+        align-items: center;
 }
 
 
@@ -355,6 +378,7 @@ gap: 16px;
     gap: 8px;
 }
 .log-out{
+    display: flex;
     position: absolute;
     bottom: 20px;
     left:20px;
@@ -364,7 +388,7 @@ gap: 16px;
     border: 1.5px solid #111;
     background: #FFF;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 .arrow{
 stroke:#EAC645;
@@ -380,6 +404,8 @@ align-items: center;
 .user-name{
     position: absolute;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap:9px;
     top:84px;
     left:20px;
