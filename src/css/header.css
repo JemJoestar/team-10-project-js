@@ -222,10 +222,10 @@
 }
 
 .menu-container {
-    position: relative;
+    position: fixed;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     top: 0;
     left: 0;
     width: 100%;
@@ -265,6 +265,7 @@
 }
  .mobile-menu-container{ 
 position: fixed;
+overflow: hidden;
 top: 0;
 left:0;
 width: 100%;
@@ -323,12 +324,16 @@ gap: 16px;
 
 }
 .img-modal{
-    background-image: url(../partials/header/header_images/Group6.jpg);
-    position: absolute;
-    top: 442px;
-    width: 450px;
+    z-index: 10;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../partials/header/header_images/Group6.png);
+    position: absolute; 
+    bottom: -15%;
+    width: 125%;
+    left: -5%;
     height: 439px;
-    transform: rotate(-15deg);
+    /* transform: rotate(-15deg); */
     flex-shrink: 0;
     
 
@@ -385,6 +390,7 @@ gap: 16px;
 .log-out{
     display: flex;
     position: absolute;
+    z-index: 20;
     bottom: 20px;
     left:20px;
     width: 118px;
