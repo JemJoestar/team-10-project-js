@@ -91,6 +91,7 @@
 
 .bookinfo-title {
   overflow-wrap: break-word;
+  /* text-wrap: balance; */
   color: var(--main-text-color); /* Используем переменную для цвета текста */
   white-space: nowrap;
   overflow: hidden;
