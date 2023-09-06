@@ -85,8 +85,12 @@ function onEscPress(event) {
 async function openModal(event) {
     event.preventDefault();
     // консоль щоб побачити чи приходить айдішник з арі
-    console.log(event.target.parentNode.dataset.bookId);
-  loader.show();
+  // console.log(event.target.parentNode.dataset.bookId);
+  if (!event.target.closest(".book-card")) {
+    return;
+  } else {
+    
+    loader.show();
     try {
     //   отримання правильного айді при кліку по книзі
     bookData = await getBookInfo(event.target.closest(".book-card").dataset.bookId);
@@ -135,7 +139,7 @@ async function openModal(event) {
     loader.hide();
   } catch {
     console.error('Error');
-  }
+  }}
 }
 
 // отримуємо данні з api
