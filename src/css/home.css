@@ -90,6 +90,7 @@
 }
 
 .bookinfo-title {
+  /* overflow-wrap: break-word; */
   color: var(--main-text-color); /* Используем переменную для цвета текста */
   white-space: nowrap;
   overflow: hidden;
@@ -238,4 +239,5 @@
 
 .overlay-item {
   position: relative;
+  width: 100%;
 }
