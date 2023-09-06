@@ -6,8 +6,7 @@
   const closeBtn = document.querySelector(".menu-toggle-mobil");
   const toggleMenu = (e) => {
     e.stopImmediatePropagation()
-    console.log(openMenuBtn) 
-    console.log(closeMenuBtn)
+  
     if (openMenuBtn.getAttribute('aria-expanded') === 'false') {
       openBtn.classList.add('hidden');
       closeBtn.classList.remove('hidden');
@@ -39,11 +38,16 @@
 
 const pathName = document.location.pathname
 if (pathName.includes('index')) {
-  const page = document.querySelector("#home");
-  page.classList.add('current');
+  const page = document.querySelectorAll(".home")
+  page.forEach(el => {
+      el.classList.add('current')
+    });;
+  
 } else if (pathName.includes('shopping')) {
-  const page = document.querySelector("#shopping");
-  page.classList.add('current');
+  const pages = document.querySelectorAll(".shopping");
+  pages.forEach(el => {
+      el.classList.add('current')
+    });;
 }
 
 

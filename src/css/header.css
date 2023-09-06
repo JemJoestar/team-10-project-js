@@ -212,7 +212,8 @@
 }
 
 @media (min-width: 768px) {
-    .menu-toggle {
+    .menu-toggle,
+    .menu-toggle-mobil {
         display: none;
     }
 }
@@ -330,6 +331,7 @@ gap: 16px;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../partials/header/header_images/Group6.png);
+    /* background-position: bottom center; */
     position: absolute; 
     bottom: -15%;
     width: 125%;
@@ -373,6 +375,7 @@ display: none;
     border: 1.5px solid #111;
     background: #4F2EE8;
     align-items: center;
+    justify-content: center;
     width: 184px; 
     height: 45px; 
     padding-bottom: 13px;
