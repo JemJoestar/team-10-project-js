@@ -55,8 +55,9 @@
 }
 
 .book-card {
+  cursor: pointer;
   position: relative;
-  width: 335px;
+  max-width: 335px;
   height: auto; /* Изменено на auto, чтобы высота масштабировалась по содержимому */
   overflow: hidden;
   flex-direction: column;
@@ -214,7 +215,7 @@
 
 .book-overlay {
   position: absolute;
-  bottom: 32px;
+  bottom: 0px;
   left: 0;
   width: 100%;
   height: 70px;
@@ -233,4 +234,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.overlay-item {
+  position: relative;
 }
