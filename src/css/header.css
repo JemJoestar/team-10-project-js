@@ -105,6 +105,9 @@
     line-height: 18px;
     letter-spacing: -0.56px;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-list {
