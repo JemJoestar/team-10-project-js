@@ -316,7 +316,7 @@ gap: 16px;
     z-index: 10;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../partials/header/header_images/Group6.png);
+    background-image: url(../partials/header/header_images/Group6.webp);
     /* background-position: bottom center; */
     position: absolute; 
     bottom: -15%;
