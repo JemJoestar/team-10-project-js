@@ -140,57 +140,6 @@ async function openModal(event) {
   } catch {
     console.error('Error');
   }}
-
-//   loader.show();
-//     try {
-//     //   отримання правильного айді при кліку по книзі
-//     bookData = await getBookInfo(event.target.closest(".book-card").dataset.bookId);
-    
-//     globalRefs.bookList.removeEventListener('click', openModal);
-      
-//     // робимо модалку видимою
-//     globalRefs.backdrop.classList.remove('is-hidden');
-//         globalRefs.addBtn.classList.remove('is-hidden');
-//     // заповнюємо розмітку правильними данними
-  
-//     globalRefs.bookCover.src = bookData.book_image;
-//     globalRefs.bookTitle.textContent = bookData.title;
-//     globalRefs.bookAuthor.textContent = bookData.author;
-//     globalRefs.bookDescr.textContent = bookData.description;
-//     globalRefs.amazonImage.src = amazonImg;
-//     globalRefs.amazonImage.srcset = `${amazonImg} 1x, ${amazonImg2} 2x`;
-//     globalRefs.appleImage.src = appleImg;
-//     globalRefs.appleImage.srcset = `${appleImg} 1x, ${appleImg2} 2x`;
-//     globalRefs.bookshopImage.src = bookshopImg;
-//     globalRefs.bookshopImage.srcset = `${bookshopImg} 1x, ${bookshopImg2} 2x`;
-      
-    
-//     // отримуємо посилання на магазини
-//     const amazonURL = bookData.buy_links.find(
-//       buyLink => buyLink.name === 'Amazon'
-//     ).url;
-    
-//       const applebooksURL = bookData.buy_links.find(
-//       buyLink => buyLink.name === 'Apple Books'
-//     ).url;
-    
-//       const bookshopURL = bookData.buy_links.find(
-//       buyLink => buyLink.name === 'Bookshop'
-//     ).url;
-   
-//     // записуємо посилання в атрибут href 
-//     globalRefs.amazonLink.href = amazonURL;
-//     globalRefs.appleLink.href = applebooksURL;
-//     globalRefs.bookshopLink.href = bookshopURL;
-    
-// // перевіряємо чи додана кника в локал стор
-//     bookAddedCheck();
-//       document.body.style.overflow = 'hidden';
-      
-//     loader.hide();
-//   } catch {
-//     console.error('Error');
-//   }
 }
 
 // отримуємо данні з api
