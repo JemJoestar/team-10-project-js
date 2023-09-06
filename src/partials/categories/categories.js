@@ -7,29 +7,26 @@ const refs = {
 };
 
 async function renderCategories() {
-  try{
-
+  try {
     const allCaregories = await getAllCategories();
     console.log(`allCaregories:`, allCaregories);
-    
+
     const marcup = allCaregories
-    .map(({ list_name }) => {
-      return `<li class="category" tabindex="0" data-category="${list_name}">
+      .map(({ list_name }) => {
+        return `<li class="category" tabindex="0" data-category="${list_name}">
       ${list_name}
       </li>`;
-    })
-    .join('');
-    
-    refs.categoryListEl.insertAdjacentHTML("beforeend", marcup);
-    
+      })
+      .join('');
+
+    refs.categoryListEl.insertAdjacentHTML('beforeend', marcup);
+
     [...refs.categoryListEl.children].forEach(category => {
-      if(category.dataset.category){
+      if (category.dataset.category) {
         category.addEventListener('click', onSelectCategory);
       }
     });
-  }catch(err){
-    
-  }
+  } catch (err) {}
 }
 
 // Выбор категории
@@ -45,13 +42,15 @@ async function onSelectCategory(event) {
   renderBooks(currentCategoryName);
 }
 
- async function renderBooks(currentCategoryName) {
+async function renderBooks(currentCategoryName) {
   const books = await findBooksByCategory(currentCategoryName);
   console.log(`books:`, books);
 
   const bookListTitle = createTitleMarcup(currentCategoryName);
 
-  refs.bookListEl.innerHTML = `${bookListTitle}<ul class="categoris-books-list">${createBookListMarcup(books)}</ul>`;
+  refs.bookListEl.innerHTML = `${bookListTitle}<ul class="categoris-books-list">${createBookListMarcup(
+    books
+  )}</ul>`;
 }
 
 function createTitleMarcup(titleText) {
@@ -66,7 +65,10 @@ function createBookListMarcup(books) {
   return books
     .map(({ _id, author, title, book_image }) => {
       return `<li class="book-card" data-book-id="${_id}">
+      <div class="overlay-item">
         <img class="book-image" src="${book_image || placeholderImg}" alt="${title} cover" loading="lazy">
+        <p class = "book-overlay">quick view</p>
+        </div>
         <h2 class="bookinfo-title">${title}</h2>
         <p class="bookinfo-author">${author}</p>
       </li>`;
@@ -74,4 +76,4 @@ function createBookListMarcup(books) {
     .join('');
 }
 
-renderCategories()
+renderCategories();
