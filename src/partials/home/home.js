@@ -54,6 +54,7 @@ function createBookHTML(book) {
     <div class="book-card" data-book-id="${book._id}">
 
       <img class="book-image" src="${book.book_image}" alt="${book.title} cover">
+      <p class = "book-overlay">quick view</p>
       <div class="book-info">
         <h3 class = "bookinfo-title">${book.title}</h3>
         <p class = "bookinfo-author">${book.author}</p>
