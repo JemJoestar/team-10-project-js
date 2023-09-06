@@ -325,11 +325,12 @@ gap: 16px;
 .img-modal{
     background-image: url(../partials/header/header_images/Group6.jpg);
     position: absolute;
-    /* bottom: -170px; */
-    width: 450.001px;
+    top: 442px;
+    width: 450px;
     height: 439px;
     transform: rotate(-15deg);
     flex-shrink: 0;
+    
 
 }
 
@@ -344,11 +345,15 @@ gap: 16px;
     align-items: end;
 }
 .Authorization{
+    color: white;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 600;
     display: none;
     border-radius: 18px;
     border: 1.5px solid #111;
     background: #4F2EE8;
-
+    align-items: center;
     width: 184px; 
     height: 45px; 
     padding-bottom: 13px;
