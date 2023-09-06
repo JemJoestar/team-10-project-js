@@ -196,7 +196,8 @@
 
 
 
-.menu-toggle {
+.menu-toggle,
+.menu-toggle-mobil {
     min-height: 24px;
     min-width: 24px;
     display: flex;
@@ -211,7 +212,8 @@
 }
 
 @media (min-width: 768px) {
-    .menu-toggle {
+    .menu-toggle,
+    .menu-toggle-mobil {
         display: none;
     }
 }
@@ -242,7 +244,8 @@
     transform: translateX(0);
 }
 
-.menu-toggle-mobil {
+/* .menu-toggle-mobil {
+    z-index: 100;
     position: absolute;
     top: 24px;
     right: 24px;
@@ -262,7 +265,7 @@
     stroke: #2E2F42;
     align-items: end;
 
-}
+} */
  .mobile-menu-container{ 
 position: fixed;
 overflow: hidden;
@@ -275,7 +278,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-
+z-index: 1100;
 } 
 
 .mobile-menu {
@@ -328,6 +331,7 @@ gap: 16px;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../partials/header/header_images/Group6.png);
+    /* background-position: bottom center; */
     position: absolute; 
     bottom: -15%;
     width: 125%;
@@ -343,11 +347,23 @@ gap: 16px;
     fill: currentColor;
         align-items: center;
 }
+.modal-icon{
+    stroke: #2E2F42;
+    align-items: end;
+    width: 24px;
+    height: 24px;   
+    }
 
 
 .hamburger {
     stroke: #2E2F42;
     align-items: end;
+}
+.hidden{
+display: none;
+}
+.hamburger.hidden {
+   display: none;
 }
 .Authorization{
     color: white;
@@ -359,6 +375,7 @@ gap: 16px;
     border: 1.5px solid #111;
     background: #4F2EE8;
     align-items: center;
+    justify-content: center;
     width: 184px; 
     height: 45px; 
     padding-bottom: 13px;
