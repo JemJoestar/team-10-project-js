@@ -64,6 +64,8 @@
 }
 
 .header-item-link:hover,
+.mobile-link:hover,
+.mobile-link:focus,
 .header-item-link:focus { 
    color: var(--yellow-accent-color);
    fill: currentColor;
@@ -72,20 +74,10 @@
         align-items: flex-start;
         gap: 10px;
 }
-.header-item-link::after {
 
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    display: block;
-    content: "";
-    width: 100%;
-    height: 4px;
 
-    border-radius: 4px;
-}
-
-.current.header-item-link {
+.current.header-item-link,
+.current.mobile-link {
     
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 36px;
@@ -97,6 +89,8 @@
 }
 
 .current.header-item-link:hover,
+.current.mobile-link:hover,
+.current.mobile-link:focus,
 .current.header-item-link:focus{
     color: var(--black-color);
     fill: currentColor;
@@ -229,9 +223,9 @@
 
 .menu-container {
     position: fixed;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     top: 0;
     left: 0;
     width: 100%;
@@ -250,48 +244,65 @@
 
 .menu-toggle-mobil {
     position: absolute;
-    position: absolute;
-        top: 24px;
-        right: 24px;
-        min-height: 24px;
-        min-width: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        background-color: transparent;
-        cursor: pointer;
-        border: 1px solid var(--btn-color);
-        border-radius: 50%;
+    top: 24px;
+    right: 24px;
+    min-height: 24px;
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid var(--btn-color);
+    border-radius: 50%;
     width: 28px;
     height: 28px;
     stroke: #2E2F42;
     align-items: end;
 
 }
+ .mobile-menu-container{ 
+position: fixed;
+overflow: hidden;
+top: 0;
+left:0;
+width: 100%;
+height: 100%;
+/* margin: auto; */
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+} 
 
 .mobile-menu {
-top:50%;
-left:50%;
-transform: translate(-50% -50%);
-display: inline-flex;
+
+/* position: absolute; */
+/* top:247px; */
+/* left:129px; */
+/* margin: 0 auto; */
+/* padding-top: 120px; */
+display: flex;
 flex-direction: column;
 justify-content: center;
-align-items: flex-start;
+align-items: start;
 gap: 16px;
 }
 
 .mobile-link {
 
-    display: block;
-    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #FFF;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1.28;
-        letter-spacing: -0.56px;
-        text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
 
 }
 
@@ -312,9 +323,26 @@ gap: 16px;
 
 
 }
+.img-modal{
+    z-index: 10;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../partials/header/header_images/Group6.png);
+    position: absolute; 
+    bottom: -15%;
+    width: 125%;
+    left: -5%;
+    height: 439px;
+    /* transform: rotate(-15deg); */
+    flex-shrink: 0;
+    
 
+}
 
-
+.bag{
+    fill: currentColor;
+        align-items: center;
+}
 
 
 .hamburger {
@@ -322,11 +350,15 @@ gap: 16px;
     align-items: end;
 }
 .Authorization{
+    color: white;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 600;
     display: none;
     border-radius: 18px;
     border: 1.5px solid #111;
     background: #4F2EE8;
-
+    align-items: center;
     width: 184px; 
     height: 45px; 
     padding-bottom: 13px;
@@ -354,4 +386,39 @@ gap: 16px;
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+.log-out{
+    display: flex;
+    position: absolute;
+    z-index: 20;
+    bottom: 20px;
+    left:20px;
+    width: 118px;
+    height: 48px;
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    background: #FFF;
+    justify-content: center;
+    align-items: center;
+}
+.arrow{
+stroke:#EAC645;
+align-items: center;
+}
+.aut{
+     
+    color: #FFF;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.44px;
+}
+.user-name{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:9px;
+    top:84px;
+    left:20px;
+
 }
