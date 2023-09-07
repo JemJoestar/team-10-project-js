@@ -145,8 +145,10 @@
     width: 250px;
     height: 188px;
     overflow: hidden;
+    /* margin: 0px; */
     margin-bottom: 16px;
     margin-right: 0px;
+
 }
 
 @media screen and (min-width: 768px){
@@ -165,7 +167,6 @@
 .founds-list {
     /* width: 159px;
     height: 188px; */
-    /* width: 159px; */
     /* padding-left: 40px; */
     /* gap: 20px; */
 }
