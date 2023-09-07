@@ -103,8 +103,10 @@ const container = document.querySelector('.founds-list');
 try{
 
   container.insertAdjacentHTML(
-    'beforeend',
-    foundsMarkup(founds)
+    'beforeend',`
+    <li></li>
+      ${foundsMarkup(founds)}
+    <li></li>`
     );
     
   }catch(err){}
