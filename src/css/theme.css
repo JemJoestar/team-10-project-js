@@ -56,10 +56,11 @@
 /* style by category */
 
 .dark .category {
-    color: rgba(255, 255, 255, 0.60);;
+    color: var(--gray-darck-theme-color);
 }
 
 .dark .category:hover,
+.dark .category:focus,
 .dark .category.selected {
     color: var(--yellow-accent-color);
 }
@@ -112,7 +113,8 @@
     stroke: var(--white-color);
 }
 
-.dark .modal-close-icon:hover {
+.dark .modal-close-icon:hover,
+.dark .modal-close-icon:focus {
     stroke: var(--main-accent-color);
 }
 
@@ -122,7 +124,9 @@
 }
 
 .modal-close-icon:hover,
-.delete:hover {
+.delete:hover,
+.modal-close-icon:focus,
+.delete:focus {
     transform: scale(1.25);
 }
 .dark .modal-book-title {
@@ -133,7 +137,8 @@
     color: var(--white-color);
 }
 
-.dark .shoplist-img:hover{
+.dark .shoplist-img:hover,
+.dark .shoplist-img:focus{
     filter: drop-shadow(0 3px 3px #e7e5e541);
 }
 
@@ -141,7 +146,8 @@
     filter: invert() grayscale()
 }
 
-.dark .amazon-img:hover {
+.dark .amazon-img:hover,
+.dark .amazon-img:focus {
     filter: invert() grayscale() drop-shadow(0 3px 3px #e7e5e541)
 }
 
@@ -149,7 +155,7 @@
 
 /* style bu shopping list */
 .dark .shopping-list-text {
-    color: rgba(255, 255, 255, 0.60) ;
+    color: var(--gray-darck-theme-color);
 }
 
 .dark .card-book {
@@ -161,7 +167,8 @@
     color: var(--gray-color);
 }
 
-.dark .shopping-list-logo>img:hover {
+.dark .shopping-list-logo>img:hover,
+.dark .shopping-list-logo>img:focus{
     filter: drop-shadow(0 3px 3px #e7e5e581);
 }
 
@@ -169,16 +176,17 @@
     filter: invert() grayscale();
 }
 
-.dark .amazon-logo>img:hover {
+.dark .amazon-logo>img:hover,
+.dark .amazon-logo>img:focus{
     filter: invert() grayscale() drop-shadow(0 3px 3px #e7e5e541);
 }
 
 /*stule by autorization window  */
 
-
+/* 
 .dark input {
     border: 2px solid var(--light-bg-color);
     color: var(--light-bg-color);
     background: transparent;
-}
+} */
 
